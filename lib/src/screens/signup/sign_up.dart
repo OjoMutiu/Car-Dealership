@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:oloworay_autos/src/screens/onboarding/onboarding_screen.dart';
 
 import '../../constant/color.dart';
+import 'body.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({Key? key}) : super(key: key);
@@ -15,6 +16,7 @@ class _SignUpPageState extends State<SignUpPage> {
   Widget build(BuildContext context) {
     return SafeArea(child: Scaffold(
       appBar: AppBar(
+        elevation: 0,
         backgroundColor: Colors.white,
         leading: IconButton(onPressed: () {
           Navigator.pushReplacement(context,
@@ -24,6 +26,7 @@ class _SignUpPageState extends State<SignUpPage> {
 
         )
       ),
+      body: Body()
     ));
   }
 }
