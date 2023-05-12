@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:oloworay_autos/src/constant/size.dart';
 
 import '../../constant/color.dart';
 
 class SingleButton extends StatelessWidget {
-   const SingleButton({
+  const SingleButton({
     required this.bText,
     required this.press,
-    this.bIcon, this.dHeight,
+    this.bIcon,
+    this.dHeight,
     super.key,
   });
   final String bText;
-  final IconData? bIcon;
+  final String? bIcon;
   final void Function() press;
   final double? dHeight;
 
@@ -26,17 +28,29 @@ class SingleButton extends StatelessWidget {
           height: Size().getProportionateScreenHeight(56),
           child: ElevatedButton(
             onPressed: press,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(bText, style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                  color: Colors.white,
-                  fontWeight: FontWeight.normal,
-                ),),
-                SizedBox(width: Size().getProportionateScreenWidth(10)),
-                Icon(bIcon, color: kArrowIconColor,),
-              ],
-            ),
+            child: bIcon != null ?
+                 Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        bText,
+                        style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                              color: Colors.white,
+                              fontWeight: FontWeight.normal,
+                            ),
+                      ),
+                      SizedBox(width: Size().getProportionateScreenWidth(10)),
+                      SvgPicture.asset(bIcon!)
+                      //Icon(bIcon, color: kArrowIconColor,),
+                    ],
+                  )
+                : Text(
+                    bText,
+                    style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                          color: Colors.white,
+                          fontWeight: FontWeight.normal,
+                        ),
+                  ),
           ),
         ),
       ],

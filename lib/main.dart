@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: AppTheme.lightTheme, //if you want light theme, this is how to call it
       darkTheme: AppTheme.darkTheme, //for dark theme, change to darkTheme
       themeMode: ThemeMode.system, //sets the theme of the app to system's theme
-      home: MySplashscreen(),
+      home: const MySplashscreen(),
     );
   }
 }

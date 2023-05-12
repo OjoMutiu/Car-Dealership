@@ -90,7 +90,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                 child: currentPage == content.length -1? const DoubleButton(): SingleButton(
                   dHeight: Size().getProportionateScreenHeight(100),
                   press: (){controller.nextPage(duration: const Duration(milliseconds: 200), curve: Curves.bounceIn); },
-                  bText: bContinue, bIcon: Icons.arrow_forward,)),
+                  bText: bContinue, bIcon: forwardArrow,)),
             SizedBox(height: Size().getProportionateScreenHeight(38)),
           ],
         ),

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:oloworay_autos/src/constant/strings.dart';
 import 'package:oloworay_autos/src/screens/onboarding/onboarding_screen.dart';
 
-import '../../constant/color.dart';
 import 'body.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -22,11 +23,10 @@ class _SignUpPageState extends State<SignUpPage> {
           Navigator.pushReplacement(context,
               MaterialPageRoute(builder: (context) => const OnBoardingPage()));
         },
-          icon: const Icon(Icons.arrow_back, color: Colors.black,),
-
+          icon: SvgPicture.asset(backArrow), //, colorFilter: const ColorFilter.mode(Colors.black, BlendMode.srcIn),)
         )
       ),
-      body: Body()
+      body: const Body()
     ));
   }
 }

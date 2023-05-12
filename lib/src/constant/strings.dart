@@ -13,13 +13,21 @@ String bodyTextPage3 = 'Start your investment journey by\n creating a plan';
 String bContinue = 'Continue';
 String bSignUp = 'Sign up';
 String bSignIn = 'Sign in';
+String forwardArrow = 'assets/icons/forward_arrow_icon.svg';
 
 //Sigup Page
-String title = 'Let\'s get you onboard';
-String subtitle = 'Welcome, Register and enjoy the ride!';
+String sTitle = 'Let\'s get you onboard';
+String sSubtitle = 'Welcome, Register and enjoy the ride!';
 String signUpFormUserNameHint = 'Amunega Favour Ofu';
 String signUpFormEmailHint = 'Enter email address';
 String signUpFormPasswordHint = 'Create password';
 String signUpFormCPasswordHint = 'Confirm password';
 String termsAndService = 'I agree to the Oloworay autos ';
 String termsAndServiceBtn = 'Terms of Service';
+
+String backArrow = 'assets/icons/back_arrow_icon.svg';
+
+//OtpPage
+String oTitle = 'Verification';
+String oSubtitle = 'Please enter the 4 digit code sent \n to +2347039378543';
+String bVerify = 'Verify';

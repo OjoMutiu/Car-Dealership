@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:oloworay_autos/src/constant/color.dart';
+import 'package:oloworay_autos/src/constant/size.dart';
 
 class AppTheme {
 
@@ -23,8 +24,23 @@ class AppTheme {
           borderRadius: BorderRadius.circular(6),
         ),
       ),
-    )
+    ),
+    inputDecorationTheme: inputDecorationTheme(),
   );
+
+  static InputDecorationTheme inputDecorationTheme() {
+    return InputDecorationTheme(
+    enabledBorder: outlineInputBorder(),
+    focusedBorder: outlineInputBorder(),
+  );
+  }
+  static OutlineInputBorder outlineInputBorder() {
+    return OutlineInputBorder(
+
+    borderRadius: BorderRadius.circular(6),
+    borderSide:  BorderSide(width: 0.5, color: kPrimaryColor.withOpacity(0.4)),
+  );
+  }
 
   static TextTheme lightTextTheme = TextTheme(
      titleLarge: GoogleFonts.poppins( //title ho semibold
