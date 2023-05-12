@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:oloworay_autos/src/screens/reset_password/reset_password.dart';
 import 'package:oloworay_autos/src/screens/sign_in/sign_in.dart';
 
 import '../../constant/row_text_button.dart';
@@ -41,7 +42,9 @@ class _BodyState extends State<Body> {
                       //   }
                       // }
                       //Todo: Navigate user to correct page
-                      // Navigator.push(context, MaterialPageRoute(builder: (context) => const OTP()));
+                      Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (context)=> const ResetPassword())
+                      );
                     }),
                 SizedBox(height: Size().getProportionateScreenHeight(20.0)),
                 RowTextButton(

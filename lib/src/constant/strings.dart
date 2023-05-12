@@ -43,3 +43,8 @@ String fTitle = 'Forgot your password';
 String fSubtitle = 'Enter your email address here. We\'ll send you\n'
     'an email with a code to reset your password' ;
 String bSubmit = 'Submit';
+
+//Reset Password
+String rTitle = 'Reset Password';
+String rSubtitle = '' ;
+String bReset = 'Reset password';
