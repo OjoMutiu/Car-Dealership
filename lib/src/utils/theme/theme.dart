@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:oloworay_autos/src/constant/color.dart';
-import 'package:oloworay_autos/src/constant/size.dart';
 
 class AppTheme {
 

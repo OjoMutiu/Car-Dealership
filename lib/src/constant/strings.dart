@@ -31,3 +31,15 @@ String backArrow = 'assets/icons/back_arrow_icon.svg';
 String oTitle = 'Verification';
 String oSubtitle = 'Please enter the 4 digit code sent \n to +2347039378543';
 String bVerify = 'Verify';
+
+//SignInPage
+String siTitle = 'Let\'s sign you in';
+String siSubtitle = 'Welcome back, we are glad to have you back';
+String bLogin = 'Log in';
+String signInFormPasswordHint ='Password';
+
+//Forget Password Page
+String fTitle = 'Forgot your password';
+String fSubtitle = 'Enter your email address here. We\'ll send you\n'
+    'an email with a code to reset your password' ;
+String bSubmit = 'Submit';

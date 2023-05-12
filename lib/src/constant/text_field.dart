@@ -3,7 +3,7 @@ import 'package:flutter_svg/svg.dart';
 
 
 class TextFieldWidget extends StatelessWidget {
-   TextFieldWidget({
+   const TextFieldWidget({
     super.key,
     required this.hintText,
     required this.svgIcon,

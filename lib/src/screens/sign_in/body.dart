@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:oloworay_autos/src/constant/color.dart';
-import 'package:oloworay_autos/src/constant/default_button.dart';
-import 'package:oloworay_autos/src/constant/row_text_button.dart';
-import 'package:oloworay_autos/src/constant/strings.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:oloworay_autos/src/constant/size.dart';
-import 'package:oloworay_autos/src/screens/onboarding/single_button_icon.dart';
-import 'package:oloworay_autos/src/screens/signup/sign_up_form.dart';
-import 'package:oloworay_autos/src/screens/verification/otp.dart';
+import 'package:oloworay_autos/src/screens/forgot_password/forgot_password.dart';
+import 'package:oloworay_autos/src/screens/sign_in/sign_in_form.dart';
+import 'package:oloworay_autos/src/screens/signup/sign_up.dart';
 
-import 'header.dart';
+import '../../constant/color.dart';
+import '../../constant/row_text_button.dart';
+import '../../constant/strings.dart';
+import '../onboarding/single_button_icon.dart';
+import '../signup/header.dart';
 
 class Body extends StatefulWidget {
   const Body({Key? key}) : super(key: key);
@@ -22,19 +22,13 @@ class _BodyState extends State<Body> {
   final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    Size().init(context);
     return SingleChildScrollView(
       child: Padding(
-        padding: EdgeInsets.symmetric(
-            horizontal: Size().getProportionateScreenHeight(20.0)),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            HeaderText(
-              hText: sTitle,
-              sText: sSubtitle,
-            ),
-            SignUpForm(formKey: _formKey),
+          padding: EdgeInsets.symmetric(
+              horizontal: Size().getProportionateScreenHeight(20.0)),
+          child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            HeaderText(hText: siTitle, sText: siSubtitle),
+            SignInForm(formKey: _formKey),
             Column(
               children: [
                 SizedBox(height: Size().getProportionateScreenHeight(20.0)),
@@ -47,29 +41,26 @@ class _BodyState extends State<Body> {
                       },
                       checkColor: kPrimaryColor,
                     ),
-                    Text.rich(TextSpan(
-                        text: 'I agree to the Oloworay autos ',
-                        style: Theme.of(context)
-                            .textTheme
-                            .bodySmall
-                            ?.copyWith(color: kBodyTextColor),
-                        children: [
-                          TextSpan(
-                            // recognizer: GestureRecognizer(
-                            //   onTap: (){},
-                            // ),
-                            text: 'Terms of Service',
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodySmall
-                                ?.copyWith(color: kPrimaryColor),
-                          )
-                        ]))
+                    Text('Remember me', style: Theme.of(context)
+                        .textTheme
+                        .bodySmall
+                        ?.copyWith(color: kBodyTextColor)),
+                    const Spacer(),
+                    GestureDetector(
+                      onTap: (){
+                        Navigator.pushReplacement(context, MaterialPageRoute(builder:
+                        (context) => const ForgotPassword()));
+                      },
+                      child: Text('Forgot Password?',style: Theme.of(context)
+                          .textTheme
+                          .bodySmall
+                          ?.copyWith(color: kPrimaryColor)),
+                    ),
                   ],
                 ),
                 SizedBox(height: Size().getProportionateScreenHeight(25.0)),
                 SingleButton(
-                    bText: bSignUp,
+                    bText: bLogin,
                     press: () {
                       //Todo: setup form key and state
                       // if(_formKey.currentState != null){
@@ -77,13 +68,12 @@ class _BodyState extends State<Body> {
                       //     _formKey.currentState.save();
                       //   }
                       // }
-
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => const OTP()));
+                      //Todo: Navigate user to correct page
+                     // Navigator.push(context, MaterialPageRoute(builder: (context) => const OTP()));
                     }),
                 SizedBox(height: Size().getProportionateScreenHeight(12.0)),
                 Text('or', style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                  color: kBodyTextColor
+                    color: kBodyTextColor
                 ),),
                 SizedBox(height: Size().getProportionateScreenHeight(12.0)),
                 SizedBox(
@@ -107,8 +97,8 @@ class _BodyState extends State<Body> {
                               .textTheme
                               .bodyLarge
                               ?.copyWith(
-                                  color: kBodyTextColor2.withOpacity(0.8),
-                                  fontWeight: FontWeight.normal),
+                              color: kBodyTextColor2.withOpacity(0.8),
+                              fontWeight: FontWeight.normal),
                         ),
                       ],
                     ),
@@ -118,17 +108,16 @@ class _BodyState extends State<Body> {
                 RowTextButton(
                     tap: () {
                       //Todo: Set the on tap function
+                      Navigator.pushReplacement(context, MaterialPageRoute(builder:
+                      (context) => const SignUpPage()
+                      ));
                     },
-                    rowText: 'Already have an account? ',
-                    rowButton: 'Login'),
+                    rowText: 'Don\'t have an account? ',
+                    rowButton: 'Register'),
                 SizedBox(height: Size().getProportionateScreenHeight(70.0)),
               ],
             )
-          ],
-        ),
-      ),
+          ])),
     );
   }
 }
-
-//SizedBox(height: Size().getProportionateScreenHeight(5),),

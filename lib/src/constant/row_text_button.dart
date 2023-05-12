@@ -6,10 +6,10 @@ class RowTextButton extends StatelessWidget {
   const RowTextButton({
     super.key,
     required this.rowText,
-    required this.rowButton, this.ontap,
+    required this.rowButton, this.tap,
   });
   final String rowText, rowButton;
-  final void Function() ? ontap;
+  final void Function() ? tap;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class RowTextButton extends StatelessWidget {
                 .bodySmall
                 ?.copyWith(color: kBodyTextColor)),
         GestureDetector(
-          onTap: ontap,
+          onTap: tap,
           child: Text(
             rowButton,
             style: Theme.of(context)
