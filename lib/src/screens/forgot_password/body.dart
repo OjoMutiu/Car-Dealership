@@ -9,7 +9,6 @@ import '../onboarding/single_button_icon.dart';
 import '../signup/header.dart';
 import 'forget_password_form.dart';
 
-
 class Body extends StatefulWidget {
   const Body({Key? key}) : super(key: key);
 
@@ -25,7 +24,8 @@ class _BodyState extends State<Body> {
       child: Padding(
           padding: EdgeInsets.symmetric(
               horizontal: Size().getProportionateScreenHeight(20.0)),
-          child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          child:
+          Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             HeaderText(hText: fTitle, sText: fSubtitle),
             SizedBox(height: Size().getProportionateScreenHeight(50.0)),
             ForgetPasswordForm(formKey: _formKey),
@@ -41,18 +41,18 @@ class _BodyState extends State<Body> {
                       //     _formKey.currentState.save();
                       //   }
                       // }
-                      //Todo: Navigate user to correct page
-                      Navigator.pushReplacement(context,
-                      MaterialPageRoute(builder: (context)=> const ResetPassword())
-                      );
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const ResetPassword()));
                     }),
                 SizedBox(height: Size().getProportionateScreenHeight(20.0)),
                 RowTextButton(
                     tap: () {
-                      //Todo: Set the on tap function
-                      Navigator.pushReplacement(context, MaterialPageRoute(builder:
-                          (context) => const SignInPage()
-                      ));
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const SignInPage()));
                     },
                     rowText: 'Back to ',
                     rowButton: 'Login'),

@@ -15,18 +15,20 @@ class ResetPassword extends StatefulWidget {
 class _ResetPasswordState extends State<ResetPassword> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(child: Scaffold(
-      appBar: AppBar(
-          elevation: 0,
-          backgroundColor: Colors.white,
-          leading: IconButton(onPressed: () {
-            Navigator.pushReplacement(context,
-                MaterialPageRoute(builder: (context) => const ForgotPassword()));
-          },
-            icon: SvgPicture.asset(backArrow), //, colorFilter: const ColorFilter.mode(Colors.black, BlendMode.srcIn),)
-          )),
-      body: const Body(),
-
+    return SafeArea(
+        child: Scaffold(
+          appBar: AppBar(
+              elevation: 0,
+              backgroundColor: Colors.white,
+              leading: IconButton(
+                  onPressed: () {
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const ForgotPassword()));
+                  },
+                  icon: SvgPicture.asset(backArrow))),
+          body: const Body(),
     ));
   }
 }

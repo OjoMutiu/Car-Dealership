@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:oloworay_autos/src/screens/reset_password/password_reset_successful.dart';
 import 'package:oloworay_autos/src/screens/reset_password/reset_password_form.dart';
 
-import '../../constant/color.dart';
+
 import '../../constant/strings.dart';
 import '../../constant/size.dart';
 import '../onboarding/single_button_icon.dart';
@@ -20,8 +21,7 @@ class _BodyState extends State<Body> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Padding(
-        padding: EdgeInsets.symmetric(
-            horizontal: Size().getProportionateScreenHeight(20.0)),
+        padding: EdgeInsets.symmetric(horizontal: Size().getProportionateScreenHeight(20.0)),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -42,8 +42,7 @@ class _BodyState extends State<Body> {
                       //     _formKey.currentState.save();
                       //   }
                       // }
-                      //Todo: Navigate to login successful
-                     // Navigator.push(context, MaterialPageRoute(builder: (context) => const OTP()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => const PasswordResetSuccessful()));
                     }),
               ],
             )

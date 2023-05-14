@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:oloworay_autos/play.dart';
 import 'package:oloworay_autos/src/constant/size.dart';
 import 'package:oloworay_autos/src/screens/onboarding/single_button_icon.dart';
 
@@ -33,7 +34,11 @@ class OtpBody extends StatelessWidget {
           SizedBox(height: Size().getProportionateScreenHeight(36.0)),
           SingleButton(
             dHeight: Size().getProportionateScreenHeight(25),
-            press: () {},
+            press: () {
+              Navigator.pushReplacement(context, MaterialPageRoute(builder:
+              (context) => const Play()
+              ));
+            },
             bText: bVerify,
             bIcon: forwardArrow,
           ),

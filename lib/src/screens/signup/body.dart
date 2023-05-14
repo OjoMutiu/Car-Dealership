@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:oloworay_autos/src/constant/color.dart';
-import 'package:oloworay_autos/src/constant/default_button.dart';
 import 'package:oloworay_autos/src/constant/row_text_button.dart';
 import 'package:oloworay_autos/src/constant/strings.dart';
 import 'package:oloworay_autos/src/constant/size.dart';
@@ -47,24 +46,25 @@ class _BodyState extends State<Body> {
                       },
                       checkColor: kPrimaryColor,
                     ),
-                    Text.rich(TextSpan(
-                        text: 'I agree to the Oloworay autos ',
+                    Text(
+                      termsAndService,
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodySmall
+                          ?.copyWith(color: kBodyTextColor),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        //Todo: Navigate to terms and service page
+                      },
+                      child: Text(
+                        termsAndServiceBtn,
                         style: Theme.of(context)
                             .textTheme
                             .bodySmall
-                            ?.copyWith(color: kBodyTextColor),
-                        children: [
-                          TextSpan(
-                            // recognizer: GestureRecognizer(
-                            //   onTap: (){},
-                            // ),
-                            text: 'Terms of Service',
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodySmall
-                                ?.copyWith(color: kPrimaryColor),
-                          )
-                        ]))
+                            ?.copyWith(color: kPrimaryColor),
+                      ),
+                    ),
                   ],
                 ),
                 SizedBox(height: Size().getProportionateScreenHeight(25.0)),
@@ -82,27 +82,29 @@ class _BodyState extends State<Body> {
                           MaterialPageRoute(builder: (context) => const OTP()));
                     }),
                 SizedBox(height: Size().getProportionateScreenHeight(12.0)),
-                Text('or', style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                  color: kBodyTextColor
-                ),),
+                Text('or',
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyLarge
+                        ?.copyWith(color: kBodyTextColor)),
                 SizedBox(height: Size().getProportionateScreenHeight(12.0)),
                 SizedBox(
-                  width: Size().getProportionateScreenWidth(327),
+                  width: double.infinity,
                   height: Size().getProportionateScreenHeight(56),
                   child: OutlinedButton(
                     onPressed: () {},
                     style: OutlinedButton.styleFrom(
                       side: BorderSide(
-                          width: Size().getProportionateScreenWidth(1),
-                          color: kPrimaryColor),
+                          width: Size().getProportionateScreenWidth(0.5),
+                          color: kPrimaryColor.withOpacity(0.4)),
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        SvgPicture.asset('assets/icons/google_icon.svg'),
+                        SvgPicture.asset(googleIcon),
                         SizedBox(width: Size().getProportionateScreenWidth(14)),
                         Text(
-                          'Login with Google',
+                          tGoogleLogin,
                           style: Theme.of(context)
                               .textTheme
                               .bodyLarge

@@ -34,8 +34,8 @@ class TextFieldWidget extends StatelessWidget {
                 padding: const EdgeInsets.all(10.0),
                 child: SvgPicture.asset(
                   svgIcon!,
-                  colorFilter:
-                      const ColorFilter.mode(Colors.black, BlendMode.srcIn),
+                  // colorFilter:
+                  //     const ColorFilter.mode(Colors.black, BlendMode.srcIn),
                 ),
               ),
               suffixIcon: suffix,

@@ -30,7 +30,7 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
               height: Size().getProportionateScreenHeight(20),
             ),
             const TextFieldWidget(
-              hintText: 'Error code',
+              hintText: 'Enter code',
               textInputType: TextInputType.visiblePassword,
               obscure: true,
             ),

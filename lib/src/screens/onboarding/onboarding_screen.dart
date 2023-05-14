@@ -45,54 +45,57 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
     Size().init(context);
     return SafeArea(
       child: Scaffold(
-        body: Column(
-          children: [
-            SizedBox(height: Size().getProportionateScreenHeight(16)),
-            Row(
-              children: [
-                SizedBox(width: Size().getProportionateScreenWidth(315)),
-                TextButton(
-                    onPressed: (){
-                      if(currentPage==content.length-1){
-                        Navigator.pushReplacement(context,
-                            MaterialPageRoute(builder: (context) => const SignUpPage()));
-                      }
-                      controller.nextPage(duration: const Duration(milliseconds: 200),
-                          curve: Curves.bounceIn);
+        body: Padding(
+          padding: EdgeInsets.symmetric(horizontal: Size().getProportionateScreenWidth(24)),
+          child: Column(
+            children: [
+              SizedBox(height: Size().getProportionateScreenHeight(16)),
+              Row(
+                children: [
+                  const Spacer(),
+                  TextButton(
+                      onPressed: (){
+                        if(currentPage==content.length-1){
+                          Navigator.pushReplacement(context,
+                              MaterialPageRoute(builder: (context) => const SignUpPage()));
+                        }
+                        controller.nextPage(duration: const Duration(milliseconds: 200),
+                            curve: Curves.bounceIn);
+                      },
+                      child: Text('Skip', style: Theme.of(context).textTheme.bodyLarge,)),
+                ],
+              ),
+              Expanded(
+                child:
+                PageView.builder(
+                  controller: controller,
+                    itemCount: content.length,
+                    onPageChanged: (int index){
+                      setState(() {
+                        currentPage = index;
+                      });
                     },
-                    child: Text('Skip', style: Theme.of(context).textTheme.bodyLarge,)),
-              ],
-            ),
-            Expanded(
-              child:
-              PageView.builder(
-                controller: controller,
-                  itemCount: content.length,
-                  onPageChanged: (int index){
-                    setState(() {
-                      currentPage = index;
-                    });
-                  },
-                  itemBuilder: (BuildContext context, int index){
-                    //index = 2;
-                    return SplashContent(
-                      headText: content[index].headText,
-                      text: content[index].text,
-                      image: content[index].image);
-                  }),
-            ),
-            SizedBox(height: Size().getProportionateScreenHeight(12)),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: List.generate(content.length, (index) => buildDot(index: index)),
-            ),
-            Container(
-                child: currentPage == content.length -1? const DoubleButton(): SingleButton(
-                  dHeight: Size().getProportionateScreenHeight(100),
-                  press: (){controller.nextPage(duration: const Duration(milliseconds: 200), curve: Curves.bounceIn); },
-                  bText: bContinue, bIcon: forwardArrow,)),
-            SizedBox(height: Size().getProportionateScreenHeight(38)),
-          ],
+                    itemBuilder: (BuildContext context, int index){
+                      //index = 2;
+                      return SplashContent(
+                        headText: content[index].headText,
+                        text: content[index].text,
+                        image: content[index].image);
+                    }),
+              ),
+              SizedBox(height: Size().getProportionateScreenHeight(12)),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: List.generate(content.length, (index) => buildDot(index: index)),
+              ),
+              Container(
+                  child: currentPage == content.length -1? const DoubleButton(): SingleButton(
+                    dHeight: Size().getProportionateScreenHeight(100),
+                    press: (){controller.nextPage(duration: const Duration(milliseconds: 200), curve: Curves.bounceIn); },
+                    bText: bContinue, bIcon: forwardArrow,)),
+              SizedBox(height: Size().getProportionateScreenHeight(38)),
+            ],
+          ),
         ),
       ),
     );

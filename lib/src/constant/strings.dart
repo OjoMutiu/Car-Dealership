@@ -18,18 +18,22 @@ String forwardArrow = 'assets/icons/forward_arrow_icon.svg';
 //Sigup Page
 String sTitle = 'Let\'s get you onboard';
 String sSubtitle = 'Welcome, Register and enjoy the ride!';
-String signUpFormUserNameHint = 'Amunega Favour Ofu';
+String username = 'Ofu' ;
+String signUpFormUserNameHint = 'Amunega Favour $username';
 String signUpFormEmailHint = 'Enter email address';
 String signUpFormPasswordHint = 'Create password';
 String signUpFormCPasswordHint = 'Confirm password';
 String termsAndService = 'I agree to the Oloworay autos ';
 String termsAndServiceBtn = 'Terms of Service';
+String tGoogleLogin = 'Login with Google';
 
 String backArrow = 'assets/icons/back_arrow_icon.svg';
+String googleIcon = 'assets/icons/google_icon.svg';
 
 //OtpPage
 String oTitle = 'Verification';
-String oSubtitle = 'Please enter the 4 digit code sent \n to +2347039378543';
+String phoneNumber = '+234 7039378543';
+String oSubtitle = 'Please enter the 4 digit code sent \n to $phoneNumber';
 String bVerify = 'Verify';
 
 //SignInPage
@@ -48,3 +52,8 @@ String bSubmit = 'Submit';
 String rTitle = 'Reset Password';
 String rSubtitle = '' ;
 String bReset = 'Reset password';
+
+//Successful Login
+String psTitle = 'Successful';
+String psSubtitle = 'Password successfully\n updated' ;
+String iconCheck = 'assets/icons/check.svg';

@@ -69,7 +69,6 @@ class _BodyState extends State<Body> {
                       //   }
                       // }
                       //Todo: Navigate user to correct page
-                     // Navigator.push(context, MaterialPageRoute(builder: (context) => const OTP()));
                     }),
                 SizedBox(height: Size().getProportionateScreenHeight(12.0)),
                 Text('or', style: Theme.of(context).textTheme.bodyLarge?.copyWith(
@@ -77,22 +76,22 @@ class _BodyState extends State<Body> {
                 ),),
                 SizedBox(height: Size().getProportionateScreenHeight(12.0)),
                 SizedBox(
-                  width: Size().getProportionateScreenWidth(327),
+                  width: double.infinity,
                   height: Size().getProportionateScreenHeight(56),
                   child: OutlinedButton(
                     onPressed: () {},
                     style: OutlinedButton.styleFrom(
                       side: BorderSide(
-                          width: Size().getProportionateScreenWidth(1),
-                          color: kPrimaryColor),
+                          width: Size().getProportionateScreenWidth(0.5),
+                          color: kPrimaryColor.withOpacity(0.4)),
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        SvgPicture.asset('assets/icons/google_icon.svg'),
+                        SvgPicture.asset(googleIcon),
                         SizedBox(width: Size().getProportionateScreenWidth(14)),
                         Text(
-                          'Login with Google',
+                          tGoogleLogin,
                           style: Theme.of(context)
                               .textTheme
                               .bodyLarge

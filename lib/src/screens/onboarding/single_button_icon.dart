@@ -24,7 +24,7 @@ class SingleButton extends StatelessWidget {
       children: [
         SizedBox(height: dHeight),
         SizedBox(
-          width: Size().getProportionateScreenWidth(327),
+          width: double.infinity,
           height: Size().getProportionateScreenHeight(56),
           child: ElevatedButton(
             onPressed: press,

@@ -38,7 +38,7 @@ class _MySplashscreenState extends State<MySplashscreen> {
     _navigateToOnBoardingPage();
   }
   _navigateToOnBoardingPage() async{
-    await Future.delayed(const Duration(milliseconds: 5000), (){});
+    await Future.delayed(const Duration(milliseconds: 2000), (){});
     Navigator.pushReplacement(context,
         MaterialPageRoute(builder: (context) => OnBoardingPage()));
   }
