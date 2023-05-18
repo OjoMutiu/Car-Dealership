@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:oloworay_autos/src/constant/size.dart';
 
-import '../../constant/color.dart';
+import 'color.dart';
+import 'size.dart';
 
 class FormError extends StatelessWidget {
   const FormError({
@@ -15,11 +15,11 @@ class FormError extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
         children: List.generate(errors.length,
-                (index) => buildUserError(context, error: errors[index]))
+              (index) => buildErrorMessage(context, errorMessage: errors[0]),)
     );
   }
 
-  Row buildUserError(BuildContext context, {required String error}) {
+  Row buildErrorMessage(BuildContext context,{required String errorMessage}) {
     return Row(
       children: [
         Icon(Icons.error_outline,
@@ -27,7 +27,7 @@ class FormError extends StatelessWidget {
           size: Size().getProportionateScreenHeight(14),
         ),
         SizedBox(width: Size().getProportionateScreenHeight(10) ,),
-        Text(error, style: Theme.of(context).textTheme.bodySmall?.copyWith(
+        Text(errorMessage, style: Theme.of(context).textTheme.bodySmall?.copyWith(
             color: kBodyTextColor
         ),),
       ],

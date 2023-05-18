@@ -21,7 +21,7 @@ class DoubleButton extends StatelessWidget {
         SingleButton(
           bText: bSignUp,
           press: () {
-            Navigator.pushReplacement(context,
+            Navigator.push(context,
                 MaterialPageRoute(builder: (context) => const SignUpPage()));
           },
         ),
@@ -31,7 +31,7 @@ class DoubleButton extends StatelessWidget {
           height: Size().getProportionateScreenHeight(56),
           child: OutlinedButton(
             onPressed: () {
-              Navigator.pushReplacement(context,
+              Navigator.push(context,
                   MaterialPageRoute(builder: (context) => const SignInPage()));
             },
             style: OutlinedButton.styleFrom(

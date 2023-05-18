@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:oloworay_autos/src/constant/color.dart';
+import 'package:oloworay_autos/src/constant/form_error.dart';
 import 'package:oloworay_autos/src/constant/row_text_button.dart';
 import 'package:oloworay_autos/src/constant/strings.dart';
 import 'package:oloworay_autos/src/constant/size.dart';
 import 'package:oloworay_autos/src/screens/onboarding/single_button_icon.dart';
+import 'package:oloworay_autos/src/screens/sign_in/sign_in.dart';
 import 'package:oloworay_autos/src/screens/signup/sign_up_form.dart';
 import 'package:oloworay_autos/src/screens/verification/otp.dart';
 
@@ -19,6 +21,7 @@ class Body extends StatefulWidget {
 
 class _BodyState extends State<Body> {
   final _formKey = GlobalKey<FormState>();
+  bool agree = false;
   @override
   Widget build(BuildContext context) {
     Size().init(context);
@@ -40,11 +43,10 @@ class _BodyState extends State<Body> {
                 Row(
                   children: [
                     Checkbox(
-                      value: false,
-                      onChanged: (value) {
-                        value == true;
-                      },
-                      checkColor: kPrimaryColor,
+                      value: agree,
+                      activeColor: kPrimaryColor,
+                      onChanged: (value) {setState(() {agree = value!;});},
+                      checkColor: Colors.white,
                     ),
                     Text(
                       termsAndService,
@@ -55,7 +57,7 @@ class _BodyState extends State<Body> {
                     ),
                     GestureDetector(
                       onTap: () {
-                        //Todo: Navigate to terms and service page
+                        //TODO: Navigate to terms and service page
                       },
                       child: Text(
                         termsAndServiceBtn,
@@ -67,19 +69,21 @@ class _BodyState extends State<Body> {
                     ),
                   ],
                 ),
+
+                FormError(errors: tError),
                 SizedBox(height: Size().getProportionateScreenHeight(25.0)),
                 SingleButton(
                     bText: bSignUp,
                     press: () {
-                      //Todo: setup form key and state
-                      // if(_formKey.currentState != null){
-                      //   if(_formKey.currentState.validate()){
-                      //     _formKey.currentState.save();
-                      //   }
-                      // }
-
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => const OTP()));
+                      if (_formKey.currentState!.validate()) {
+                        if(agree == true){
+                          _formKey.currentState!.save();
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const OTP()));
+                        }
+                      }
                     }),
                 SizedBox(height: Size().getProportionateScreenHeight(12.0)),
                 Text('or',
@@ -92,7 +96,9 @@ class _BodyState extends State<Body> {
                   width: double.infinity,
                   height: Size().getProportionateScreenHeight(56),
                   child: OutlinedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      //Todo: Setup functionality
+                    },
                     style: OutlinedButton.styleFrom(
                       side: BorderSide(
                           width: Size().getProportionateScreenWidth(0.5),
@@ -119,7 +125,10 @@ class _BodyState extends State<Body> {
                 SizedBox(height: Size().getProportionateScreenHeight(20.0)),
                 RowTextButton(
                     tap: () {
-                      //Todo: Set the on tap function
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const SignInPage()));
                     },
                     rowText: 'Already have an account? ',
                     rowButton: 'Login'),

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:oloworay_autos/src/constant/strings.dart';
-import 'package:oloworay_autos/src/screens/onboarding/onboarding_screen.dart';
 
 import 'body.dart';
 
@@ -22,10 +21,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 backgroundColor: Colors.white,
                 leading: IconButton(
                     onPressed: () {
-                      Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const OnBoardingPage()));
+                      Navigator.pop(context);
                     },
                     icon: SvgPicture.asset(backArrow))),
             body: const Body()));

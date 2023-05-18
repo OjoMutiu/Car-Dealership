@@ -29,8 +29,14 @@ class AppTheme {
 
   static InputDecorationTheme inputDecorationTheme() {
     return InputDecorationTheme(
-    enabledBorder: outlineInputBorder(),
-    focusedBorder: outlineInputBorder(),
+      errorStyle: const TextStyle(
+        color: Colors.redAccent,
+        fontSize: 1
+      ),
+      enabledBorder: outlineInputBorder(),
+      focusedBorder: outlineInputBorder(),
+      errorBorder: outlineInputBorder(),
+      focusedErrorBorder: outlineInputBorder(),
   );
   }
   static OutlineInputBorder outlineInputBorder() {

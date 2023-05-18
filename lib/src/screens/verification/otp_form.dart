@@ -45,6 +45,11 @@ class _OtpFormState extends State<OtpForm> {
                 width: Size().getProportionateScreenHeight(68),
                 height: Size().getProportionateScreenHeight(68),
                 child: TextFormField(
+                  // validator: (value){
+                  //   // if(value == null || value.isEmpty){
+                  //   //   retun
+                  //   // }
+                  // },
                     keyboardType: TextInputType.number,
                     autofocus: true,
                     textAlign: TextAlign.center,

@@ -3,7 +3,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:oloworay_autos/src/screens/sign_in/body.dart';
 
 import '../../constant/strings.dart';
-import '../onboarding/onboarding_screen.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({Key? key}) : super(key: key);
@@ -22,10 +21,7 @@ class _SignInPageState extends State<SignInPage> {
                 backgroundColor: Colors.white,
                 leading: IconButton(
                     onPressed: () {
-                      Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const OnBoardingPage()));
+                      Navigator.pop(context);
                     },
                     icon: SvgPicture.asset(backArrow))),
             body: const Body()));

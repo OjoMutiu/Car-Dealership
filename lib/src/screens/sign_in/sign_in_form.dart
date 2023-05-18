@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:oloworay_autos/src/constant/form_error.dart';
 
 import '../../constant/strings.dart';
 import '../../constant/size.dart';
 import '../../constant/text_field.dart';
-import '../signup/form_error.dart';
 
-class SignInForm extends StatelessWidget {
+
+class SignInForm extends StatefulWidget {
   const SignInForm({
     super.key,
     required GlobalKey<FormState> formKey,
@@ -14,33 +15,77 @@ class SignInForm extends StatelessWidget {
   final GlobalKey<FormState> _formKey;
 
   @override
+  State<SignInForm> createState() => _SignInFormState();
+}
+
+class _SignInFormState extends State<SignInForm> {
+  late String userPassword;
+  late String userEmail;
+  bool _showPassword = false;
+  final TextEditingController _passwordController = TextEditingController();
+  @override
   Widget build(BuildContext context) {
-    final List<String> userErrors = ['Demo'];
-    final List<String> useErrors = ['Demo'];
+    Size().init(context);
     return Form(
-        key: _formKey,
+        key: widget._formKey,
         child: Column(
           children: [
             SizedBox(
               height: Size().getProportionateScreenHeight(20),
             ),
-            TextFieldWidget(
-              obscure: false,
+            buildTextFormField(
+              context,
+              show: false,
               hintText: signUpFormEmailHint,
-              svgIcon: 'assets/icons/email.svg',
+              svgIcon: emailIcon,
               textInputType: TextInputType.emailAddress,
+              validator: (String? value) {
+                if ((value == null || value.isEmpty)) {
+                  //Todo: create a custom error message
+                  if (!emailErrors.contains(fieldEmpty)) {
+                    setState(() {
+                      emailErrors.add(fieldEmpty);
+                    });
+                  }
+                  return '';
+                } else if (!isEmailValid(value)) {
+                  if (!emailErrors
+                      .contains(validEmailError)) {
+                    setState(() {
+                      emailErrors.add(validEmailError);
+                    });
+                  }
+                  return '';
+                }
+                return null;
+              },
+              onChanged: (String value) {
+                if (value.isNotEmpty) {
+                  setState(() {
+                    emailErrors.remove(fieldEmpty);
+                  });
+                }
+                if (isEmailValid(value)) {
+                  setState(() {
+                    emailErrors.remove(validEmailError);
+                  });
+                }
+              },
+              onSaved: (String? newValue) => userEmail = newValue!,
             ),
-            FormError(errors: userErrors),
-            SizedBox(
-              height: Size().getProportionateScreenHeight(20),
-            ),
-            TextFieldWidget(
-              hintText: signInFormPasswordHint,
-              svgIcon: 'assets/icons/lock.svg',
+            FormError(errors: emailErrors),
+            SizedBox(height: Size().getProportionateScreenHeight(20)),
+            buildTextFormField(
+              context,
+              controller: _passwordController,
+              hintText: 'Password',
+              svgIcon: lockIcon,
               textInputType: TextInputType.visiblePassword,
               suffix: TextButton(
                 onPressed: () {
-                  //show == true;
+                  setState(() {
+                    _showPassword = !_showPassword;
+                  });
                 },
                 child: Text(
                   'show',
@@ -50,9 +95,47 @@ class SignInForm extends StatelessWidget {
                       ?.copyWith(fontSize: 12),
                 ),
               ),
-              obscure: false,
+              show: !_showPassword,
+              validator: (String? value) {
+                if ((value == null || value.isEmpty)) {
+                  if (!passwordErrors.contains(fieldEmpty)) {
+                    setState(() {
+                      passwordErrors.add(fieldEmpty);
+                    });
+                  }
+                  return '';
+                } else if (!isPasswordValid(value)) {
+                  if (!passwordErrors
+                      .contains(validPasswordError)) {
+                    setState(() {
+                      passwordErrors.add(validPasswordError);
+                    });
+                  }
+                  return '';
+                }
+                return null;
+              },
+              onChanged: (String value) {
+                if (value.isNotEmpty) {
+                  setState(() {
+                    passwordErrors.remove(fieldEmpty);
+                  });
+                }
+                if (isPasswordValid(value)) {
+                  if(passwordErrors.contains(validPasswordError)){
+                    setState(() {
+                      passwordErrors.remove(validPasswordError);
+                    });
+                  }
+                }
+              },
+              onSaved: (String? newValue) {
+                if(newValue != null){
+                  userPassword = newValue;
+                }
+              },
             ),
-            FormError(errors: userErrors),
+            FormError(errors: passwordErrors),
           ],
         ));
   }

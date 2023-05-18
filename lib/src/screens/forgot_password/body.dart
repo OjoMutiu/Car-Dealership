@@ -31,25 +31,22 @@ class _BodyState extends State<Body> {
             ForgetPasswordForm(formKey: _formKey),
             Column(
               children: [
-                SizedBox(height: Size().getProportionateScreenHeight(25.0)),
+                SizedBox(height: Size().getProportionateScreenHeight(30.0)),
                 SingleButton(
                     bText: bSubmit,
                     press: () {
-                      //Todo: setup form key and state
-                      // if(_formKey.currentState != null){
-                      //   if(_formKey.currentState.validate()){
-                      //     _formKey.currentState.save();
-                      //   }
-                      // }
-                      Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const ResetPassword()));
+                      if (_formKey.currentState!.validate()) {
+                          _formKey.currentState!.save();
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const ResetPassword()));
+                      }
                     }),
                 SizedBox(height: Size().getProportionateScreenHeight(20.0)),
                 RowTextButton(
                     tap: () {
-                      Navigator.pushReplacement(
+                      Navigator.push(
                           context,
                           MaterialPageRoute(
                               builder: (context) => const SignInPage()));

@@ -36,13 +36,13 @@ class _BodyState extends State<Body> {
                 SingleButton(
                     bText: bReset,
                     press: () {
-                      //Todo: setup form key and state
-                      // if(_formKey.currentState != null){
-                      //   if(_formKey.currentState.validate()){
-                      //     _formKey.currentState.save();
-                      //   }
-                      // }
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => const PasswordResetSuccessful()));
+                      if (_formKey.currentState!.validate()) {
+                          _formKey.currentState!.save();
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const PasswordResetSuccessful()));
+                      }
                     }),
               ],
             )

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:oloworay_autos/src/screens/forgot_password/body.dart';
-import 'package:oloworay_autos/src/screens/sign_in/sign_in.dart';
 
 import '../../constant/strings.dart';
 
@@ -22,10 +21,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
               backgroundColor: Colors.white,
               leading: IconButton(
                   onPressed: () {
-                    Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const SignInPage()));
+                    Navigator.pop(context);
                     },
                   icon: SvgPicture.asset(backArrow))),
           body: const Body(),

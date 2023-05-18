@@ -56,7 +56,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                   TextButton(
                       onPressed: (){
                         if(currentPage==content.length-1){
-                          Navigator.pushReplacement(context,
+                          Navigator.push(context,
                               MaterialPageRoute(builder: (context) => const SignUpPage()));
                         }
                         controller.nextPage(duration: const Duration(milliseconds: 200),

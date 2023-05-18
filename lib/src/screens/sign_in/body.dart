@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:oloworay_autos/src/constant/size.dart';
+import 'package:oloworay_autos/src/home/home.dart';
 import 'package:oloworay_autos/src/screens/forgot_password/forgot_password.dart';
 import 'package:oloworay_autos/src/screens/sign_in/sign_in_form.dart';
 import 'package:oloworay_autos/src/screens/signup/sign_up.dart';
+
 
 import '../../constant/color.dart';
 import '../../constant/row_text_button.dart';
@@ -20,8 +22,11 @@ class Body extends StatefulWidget {
 
 class _BodyState extends State<Body> {
   final _formKey = GlobalKey<FormState>();
+  bool remember = false;
+
   @override
   Widget build(BuildContext context) {
+    Size().init(context);
     return SingleChildScrollView(
       child: Padding(
           padding: EdgeInsets.symmetric(
@@ -35,11 +40,14 @@ class _BodyState extends State<Body> {
                 Row(
                   children: [
                     Checkbox(
-                      value: false,
+                      value: remember,
+                      activeColor: kPrimaryColor,
                       onChanged: (value) {
-                        value == true;
+                        setState(() {
+                          remember = value!;
+                        });
                       },
-                      checkColor: kPrimaryColor,
+                      checkColor: Colors.white,
                     ),
                     Text('Remember me', style: Theme.of(context)
                         .textTheme
@@ -48,7 +56,7 @@ class _BodyState extends State<Body> {
                     const Spacer(),
                     GestureDetector(
                       onTap: (){
-                        Navigator.pushReplacement(context, MaterialPageRoute(builder:
+                        Navigator.push(context, MaterialPageRoute(builder:
                         (context) => const ForgotPassword()));
                       },
                       child: Text('Forgot Password?',style: Theme.of(context)
@@ -63,12 +71,12 @@ class _BodyState extends State<Body> {
                     bText: bLogin,
                     press: () {
                       //Todo: setup form key and state
-                      // if(_formKey.currentState != null){
-                      //   if(_formKey.currentState.validate()){
-                      //     _formKey.currentState.save();
-                      //   }
-                      // }
-                      //Todo: Navigate user to correct page
+                      if (_formKey.currentState !.validate()) {
+                            _formKey.currentState!.save();
+                            Navigator.push(context, MaterialPageRoute(builder:
+                            (context) => const MyHomePage()
+                            ));
+                      }
                     }),
                 SizedBox(height: Size().getProportionateScreenHeight(12.0)),
                 Text('or', style: Theme.of(context).textTheme.bodyLarge?.copyWith(
@@ -106,8 +114,7 @@ class _BodyState extends State<Body> {
                 SizedBox(height: Size().getProportionateScreenHeight(20.0)),
                 RowTextButton(
                     tap: () {
-                      //Todo: Set the on tap function
-                      Navigator.pushReplacement(context, MaterialPageRoute(builder:
+                      Navigator.push(context, MaterialPageRoute(builder:
                       (context) => const SignUpPage()
                       ));
                     },
@@ -120,3 +127,4 @@ class _BodyState extends State<Body> {
     );
   }
 }
+
