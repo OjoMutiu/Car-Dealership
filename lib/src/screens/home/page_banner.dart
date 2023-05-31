@@ -71,7 +71,6 @@ class BannerItem extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(right: 12.0),
       child: Container(
-        //width: double.infinity,
         height: Size().getProportionateScreenHeight(145),
         decoration: BoxDecoration(
           color: kHeadLineTextColor,
@@ -108,7 +107,9 @@ class BannerItem extends StatelessWidget {
               ),
             ),
             SizedBox(width: Size().getProportionateScreenWidth(56)),
-            Image.asset(imgSrc),
+            SizedBox(
+              width: Size().getProportionateScreenWidth(100),
+                child: Image.asset(imgSrc)),
           ],
         ),
       ),

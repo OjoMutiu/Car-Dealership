@@ -41,7 +41,7 @@ class CarCad extends StatelessWidget {
                       width: Size().getProportionateScreenWidth(width),
                       child: Image.asset(
                         image,
-                        fit: BoxFit.contain,
+                        fit: BoxFit.fitWidth,
                       )),
                   Container(
                     padding: EdgeInsets.fromLTRB(

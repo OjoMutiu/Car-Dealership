@@ -19,7 +19,7 @@ class CarTag extends StatelessWidget {
               horizontal:
               Size().getProportionateScreenWidth(4),
               vertical: Size()
-                  .getProportionateScreenHeight(2)),
+                  .getProportionateScreenHeight(3)),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(2),
               color: kPrimaryColor.withOpacity(0.15)),

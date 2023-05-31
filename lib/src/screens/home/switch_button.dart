@@ -18,8 +18,8 @@ class _ButtonSwitcherState extends State<ButtonSwitcher> {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(
-          horizontal: Size().getProportionateScreenWidth(5),
-          vertical: Size().getProportionateScreenHeight(5)),
+          horizontal: Size().getProportionateScreenWidth(4),
+          vertical: Size().getProportionateScreenHeight(4)),
       decoration: BoxDecoration(
           color: kPrimaryColor.withOpacity(0.15),
           borderRadius: BorderRadius.circular(6)),

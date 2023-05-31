@@ -46,7 +46,7 @@ List<Car> demoCars = [
       isRegistered: true,
       condition: 'Foreign Used'),
   Car(
-      images: ['assets/images/home_screen/image1.png'],
+      images: ['assets/images/home_screen/image2.png'],
       make: 'Toyota',
       model: 'land cruiser',
       body: 'sedan',
@@ -76,7 +76,7 @@ List<Car> demoCars = [
       isRegistered: true,
       condition: 'Nigerian Used'),
   Car(
-      images: ['assets/images/home_screen/image1.png'],
+      images: ['assets/images/home_screen/image2.png'],
       make: 'Toyota',
       model: 'land cruiser',
       body: 'sedan',
