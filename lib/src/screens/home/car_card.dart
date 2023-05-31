@@ -17,32 +17,34 @@ class CarCad extends StatelessWidget {
     required this.location,
     required this.transmission,
     required this.fuel,
-    required this.condition, required this.image, required this.onTap, required this.aspectRatio,
+    required this.condition, required this.image, required this.aspectRatio, required this.onTapCar, required this.onTapFav,
   });
   final int year;
   final double width, price, aspectRatio;
   final String image, make, model, location, transmission, fuel, condition;
-  final GestureTapCallback onTap;
+  final GestureTapCallback onTapCar, onTapFav;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        GestureDetector(
-          onTap: onTap,
-          child: SizedBox(
-            width: Size().getProportionateScreenWidth(width),
-            child: AspectRatio(
-              aspectRatio: aspectRatio,
-              child: Column(
+        SizedBox(
+          width: Size().getProportionateScreenWidth(width),
+          child: AspectRatio(
+            aspectRatio: aspectRatio,
+            child: Stack(
+              children:[ Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(
-                      width: Size().getProportionateScreenWidth(width),
-                      child: Image.asset(
-                        image,
-                        fit: BoxFit.fitWidth,
-                      )),
+                  GestureDetector(
+                    onTap: onTapCar,
+                    child: SizedBox(
+                        width: Size().getProportionateScreenWidth(width),
+                        child: Image.asset(
+                          image,
+                          fit: BoxFit.fitWidth,
+                        )),
+                  ),
                   Container(
                     padding: EdgeInsets.fromLTRB(
                         Size().getProportionateScreenWidth(12),
@@ -117,6 +119,24 @@ class CarCad extends StatelessWidget {
                   )
                 ],
               ),
+                Positioned(
+                  top: Size().getProportionateScreenHeight(96),
+                  left: Size().getProportionateScreenWidth(176),
+                  child: Container(
+                    padding: EdgeInsets.all(Size().getProportionateScreenHeight(6)),
+                    width: Size().getProportionateScreenWidth(28),
+                    height: Size().getProportionateScreenHeight(28),
+                    decoration: BoxDecoration(
+                        color: const Color(0xFFE4F4F4),
+                        borderRadius: BorderRadius.circular(6)
+                    ),
+                    child: GestureDetector(
+                      onTap: onTapFav,
+                      child: SvgPicture.asset('assets/icons/favourite.svg'),
+                    ),
+                  ),
+                ),
+              ]
             ),
           ),
         ),

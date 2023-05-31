@@ -61,7 +61,9 @@ class _BodyState extends State<Body> {
                     location: demoCars[index].region,
                     transmission: demoCars[index].transmission,
                     fuel: demoCars[index].fuel, condition: demoCars[index].condition, image: demoCars[index].images[0],
-                    onTap: (){}, aspectRatio: 0.9,
+                    onTapCar: (){},
+                    onTapFav: (){},
+                    aspectRatio: 0.8,
                   ),)
                 ],
               ),
