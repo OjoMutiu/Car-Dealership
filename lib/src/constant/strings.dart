@@ -77,7 +77,7 @@ String fieldEmpty = 'Field cannot be empty';
 String validEmailError = 'Please enter a valid email';
 String validPhoneError = 'Please enter a valid number';
 String validUserNameError = 'Please enter a valid name';
-String validPasswordError = 'Please enter a valid Password';
+String validPasswordError = 'Password must be minimum of six characters';
 String passwordConfirmMatchError = 'Password does not match';
 bool isPasswordValid(String password) => password.length >= 6;
 bool isEmailValid(String email) {
@@ -90,3 +90,13 @@ bool isPhoneNumberValid(String num){
   RegExp regex = RegExp(pattern);
   return regex.hasMatch(num);
 }
+
+
+//HomePage
+String userProfilePic = 'assets/images/home_screen/user_image.png';
+String bannerHeaderText1 = 'Get deals on inspected\n and used cars';
+String bannerButtonText1 = 'See Cars';
+String bannerImage1 = 'assets/images/home_screen/banner_car.png';
+String bannerImage2 = 'assets/images/home_screen/growth_arrow.png';
+String bannerHeaderText2 = 'Get 15% on your\n investment annually';
+String bannerButtonText2 = 'See Deals';

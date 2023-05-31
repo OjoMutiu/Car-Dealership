@@ -4,22 +4,31 @@ import 'package:oloworay_autos/src/constant/size.dart';
 
 class DefaultButton extends StatelessWidget {
   const DefaultButton({
-    super.key, required this.width, required this.height, required this.press, required this.text,
+    super.key, this.width, required this.height, required this.press, required this.text, required this.textStyle, required this.btnStyle,
   });
-  final double width, height;
+  final double? width;
+  final double height;
   final void Function() press;
   final String text;
+  final TextStyle? textStyle;
+  final ButtonStyle btnStyle;
   @override
   Widget build(BuildContext context) {
     Size().init(context);
-    return SizedBox(
-      width: Size().getProportionateScreenWidth(width),
+    return width !=null ? SizedBox(
+      width: Size().getProportionateScreenWidth(width!),
       height: Size().getProportionateScreenHeight(height),
       child: ElevatedButton(
         onPressed: press,
-        child: Text(text, style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-          color: Colors.white,
-          fontWeight: FontWeight.normal,)),
+        style: btnStyle,
+        child: Text(text, style: textStyle),
+      ),
+    ): SizedBox(
+      height: Size().getProportionateScreenHeight(height),
+      child: ElevatedButton(
+        onPressed: press,
+        style: btnStyle,
+        child: Text(text, style: textStyle),
       ),
     );
   }

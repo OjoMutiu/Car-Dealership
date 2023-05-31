@@ -78,6 +78,21 @@ class AppTheme {
       fontWeight: FontWeight.w600,
       color: const Color(0xFF282828),
     ),
+    labelLarge: GoogleFonts.poppins( //h6 semibold
+      fontSize: 12.0,
+      fontWeight: FontWeight.normal,
+      color: kBodyTextColor,
+    ),
+    labelMedium: GoogleFonts.poppins( //h6 semibold
+      fontSize: 10.0,
+      fontWeight: FontWeight.normal,
+      color: kBodyTextColor,
+    ),
+    labelSmall: GoogleFonts.poppins( //h6 semibold
+      fontSize: 8.0,
+      fontWeight: FontWeight.normal,
+      color: kBodyTextColor,
+    ),
   );
 
   static ThemeData darkTheme = ThemeData(

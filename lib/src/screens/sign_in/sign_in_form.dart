@@ -87,7 +87,13 @@ class _SignInFormState extends State<SignInForm> {
                     _showPassword = !_showPassword;
                   });
                 },
-                child: Text(
+                child: _showPassword ? Text(
+                  'hide',
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyMedium
+                      ?.copyWith(fontSize: 12),
+                ):Text(
                   'show',
                   style: Theme.of(context)
                       .textTheme

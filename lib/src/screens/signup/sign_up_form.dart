@@ -26,7 +26,7 @@ class _SignUpFormState extends State<SignUpForm> {
   bool _showCPassword = false;
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _cPasswordController = TextEditingController();
-
+  final TextEditingController _phoneNumberController = TextEditingController();
 
 
   @override
@@ -137,6 +137,7 @@ class _SignUpFormState extends State<SignUpForm> {
             ),
             buildTextFormField(
               context,
+              controller: _phoneNumberController,
               show: false,
               hintText: 'Enter phone number',
               svgIcon: phoneIcon,

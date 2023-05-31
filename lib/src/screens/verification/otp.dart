@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:oloworay_autos/src/screens/verification/body.dart';
+
 
 import '../../constant/strings.dart';
 import '../signup/sign_up.dart';
+import 'body.dart';
 
-class OTP extends StatefulWidget {
-  const OTP({Key? key}) : super(key: key);
+class OTP extends StatelessWidget {
+  const OTP({Key? key, required this.userPhoneNumber, required this.userName}) : super(key: key);
+  final String userPhoneNumber;
+  final String userName;
 
-  @override
-  State<OTP> createState() => _OTPState();
-}
-
-class _OTPState extends State<OTP> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(child: Scaffold(
@@ -26,7 +24,7 @@ class _OTPState extends State<OTP> {
               icon: SvgPicture.asset(backArrow), //, colorFilter: const ColorFilter.mode(Colors.black, BlendMode.srcIn),)
             )
         ),
-        body: const OtpBody(),
+        body: OtpBody(userPhoneNumber: userPhoneNumber, userName: userName,),//const OtpBody(),
     ));
   }
 }

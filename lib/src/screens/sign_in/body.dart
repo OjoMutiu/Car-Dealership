@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:oloworay_autos/src/constant/size.dart';
-import 'package:oloworay_autos/src/home/home.dart';
 import 'package:oloworay_autos/src/screens/forgot_password/forgot_password.dart';
 import 'package:oloworay_autos/src/screens/sign_in/sign_in_form.dart';
 import 'package:oloworay_autos/src/screens/signup/sign_up.dart';
@@ -10,6 +9,7 @@ import 'package:oloworay_autos/src/screens/signup/sign_up.dart';
 import '../../constant/color.dart';
 import '../../constant/row_text_button.dart';
 import '../../constant/strings.dart';
+import '../home/home.dart';
 import '../onboarding/single_button_icon.dart';
 import '../signup/header.dart';
 
@@ -70,11 +70,10 @@ class _BodyState extends State<Body> {
                 SingleButton(
                     bText: bLogin,
                     press: () {
-                      //Todo: setup form key and state
                       if (_formKey.currentState !.validate()) {
                             _formKey.currentState!.save();
                             Navigator.push(context, MaterialPageRoute(builder:
-                            (context) => const MyHomePage()
+                            (context) => const MyHomeScreen()
                             ));
                       }
                     }),

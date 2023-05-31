@@ -34,7 +34,7 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
 
   @override
   Widget build(BuildContext context) {
-    String cUserPassword;
+    // String cUserPassword;
     return Form(
         key: widget._formKey,
         child: Column(
@@ -82,7 +82,13 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
                     _showPassword = !_showPassword;
                   });
                 },
-                child: Text(
+                child: _showPassword ? Text(
+                  'hide',
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyMedium
+                      ?.copyWith(fontSize: 12),
+                ):Text(
                   'show',
                   style: Theme.of(context)
                       .textTheme
@@ -125,11 +131,7 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
                   }
                 }
               },
-              onSaved: (String? newValue) {
-                if(newValue != null){
-                  var userPassword = newValue;
-                }
-              },
+              onSaved: (String? newValue) {},
             ),
             FormError(errors: passwordErrors),
             SizedBox(
@@ -148,7 +150,13 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
                     _showCPassword = !_showCPassword;
                   });
                 },
-                child: Text(
+                child: _showCPassword ? Text(
+                  'hide',
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyMedium
+                      ?.copyWith(fontSize: 12),
+                ):Text(
                   'show',
                   style: Theme.of(context)
                       .textTheme
@@ -191,7 +199,7 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
                   }
                 }
               },
-              onSaved: (String? newValue) => cUserPassword = newValue!,
+              onSaved: (String? newValue) => {}//cUserPassword = newValue!,
             ),
             FormError(errors: cPasswordErrors),
           ],

@@ -9,6 +9,7 @@ TextFormField buildTextFormField(
       required String hintText,
       TextEditingController? controller,
       String? svgIcon,
+      TextStyle? hintTextStyle,
       Widget? suffix,
       bool? show, required TextInputType textInputType,
     })
@@ -19,11 +20,10 @@ TextFormField buildTextFormField(
     validator: validator,
     onChanged: onChanged,
     keyboardType: textInputType,
-    cursorColor: Colors.black,
+    cursorColor: Colors.black87,
     decoration: InputDecoration(
       hintText: hintText,
-      hintStyle:
-      Theme.of(context).textTheme.bodyMedium?.copyWith(fontSize: 12),
+      hintStyle: hintTextStyle ?? Theme.of(context).textTheme.bodyMedium?.copyWith(fontSize: 12),
       prefixIcon: Padding(
         padding: const EdgeInsets.all(10.0),
         child: SvgPicture.asset( svgIcon,

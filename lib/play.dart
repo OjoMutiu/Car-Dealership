@@ -38,11 +38,15 @@ class Play extends StatelessWidget {
         ),
         body: Column(
           children: [
-            const Text('Dey Play'),
-            SvgPicture.asset(
-              //Todo: Try svg webview and use asset from repo
-              'assets/images/onboarding/image.svg',
+            Container(
+              color: Colors.orange,
+              child: SvgPicture.asset(
+                //Todo: Try svg webview and use asset from repo
+                'assets/images/onboarding/image.svg',
+                colorFilter: const ColorFilter.mode(Colors.blue, BlendMode.srcIn),
+              ),
             ),
+            const Text('Dey Play'),
           ],
         ),
       ),
