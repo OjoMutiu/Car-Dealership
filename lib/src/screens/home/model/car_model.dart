@@ -217,7 +217,7 @@ List<Car> demoOloworayAutosCars = [
 ];
 List<Car> demoExploreCars = [
   Car(
-      images: ['assets/images/home_screen/image3.png'],
+      images: ['assets/images/home_screen/image6.png'],
       make: 'Toyota',
       model: 'land cruiser',
       body: 'sedan',
@@ -232,7 +232,7 @@ List<Car> demoExploreCars = [
       isRegistered: true,
       condition: 'Foreign Used'),
   Car(
-      images: ['assets/images/home_screen/image4.png'],
+      images: ['assets/images/home_screen/image7.png'],
       make: 'Toyota',
       model: 'land cruiser',
       body: 'sedan',
@@ -247,7 +247,7 @@ List<Car> demoExploreCars = [
       isRegistered: true,
       condition: 'Nigerian Used'),
   Car(
-      images: ['assets/images/home_screen/image5.png'],
+      images: ['assets/images/home_screen/image8.png'],
       make: 'Toyota',
       model: 'land cruiser',
       body: 'sedan',
@@ -262,7 +262,7 @@ List<Car> demoExploreCars = [
       isRegistered: true,
       condition: 'Nigerian Used'),
   Car(
-      images: ['assets/images/home_screen/image3.png'],
+      images: ['assets/images/home_screen/image9.png'],
       make: 'Toyota',
       model: 'land cruiser',
       body: 'sedan',
@@ -277,7 +277,7 @@ List<Car> demoExploreCars = [
       isRegistered: true,
       condition: 'Nigerian Used'),
   Car(
-      images: ['assets/images/home_screen/image3.png'],
+      images: ['assets/images/home_screen/image10.png'],
       make: 'Toyota',
       model: 'land cruiser',
       body: 'sedan',
@@ -292,7 +292,7 @@ List<Car> demoExploreCars = [
       isRegistered: true,
       condition: 'Nigerian Used'),
   Car(
-      images: ['assets/images/home_screen/image5.png'],
+      images: ['assets/images/home_screen/image11.png'],
       make: 'Toyota',
       model: 'land cruiser',
       body: 'sedan',
@@ -306,5 +306,34 @@ List<Car> demoExploreCars = [
       mileage: 1234,
       isRegistered: true,
       condition: 'Nigerian Used'),
-
+  Car(
+      images: ['assets/images/home_screen/image13.png'],
+      make: 'Toyota',
+      model: 'land cruiser',
+      body: 'sedan',
+      transmission: 'Automatic',
+      fuel: 'Petrol',
+      color: ['Red', 'Blue', 'Gray', 'White'],
+      certified: 'certified',
+      region: 'Abuja',
+      priceOfCar: 21000000,
+      yearOfManufacture: 2020,
+      mileage: 1234,
+      isRegistered: true,
+      condition: 'Nigerian Used'),
+  Car(
+      images: ['assets/images/home_screen/image14.png'],
+      make: 'Toyota',
+      model: 'land cruiser',
+      body: 'sedan',
+      transmission: 'Automatic',
+      fuel: 'Petrol',
+      color: ['Red', 'Blue', 'Gray', 'White'],
+      certified: 'certified',
+      region: 'Abuja',
+      priceOfCar: 21000000,
+      yearOfManufacture: 2020,
+      mileage: 1234,
+      isRegistered: true,
+      condition: 'Nigerian Used'),
 ];
