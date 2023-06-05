@@ -97,7 +97,7 @@ class BannerItem extends StatelessWidget {
                       press: onPressed, text: btnText,
                       textStyle: GoogleFonts.poppins(
                         fontSize: 14,
-                        fontWeight: FontWeight.normal,
+                        fontWeight: FontWeight.w500,
                         color: Colors.black,
                       ),
                       btnStyle: ElevatedButton.styleFrom(

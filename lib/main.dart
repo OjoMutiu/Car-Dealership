@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:oloworay_autos/play.dart';
 import 'package:oloworay_autos/src/screens/home/home.dart';
 import 'package:oloworay_autos/src/screens/splash/splash_screen.dart';
 import 'package:oloworay_autos/src/utils/theme/theme.dart';
@@ -21,7 +22,8 @@ class MyApp extends StatelessWidget {
       theme: AppTheme.lightTheme, //if you want light theme, this is how to call it
       darkTheme: AppTheme.darkTheme, //for dark theme, change to darkTheme
       themeMode: ThemeMode.system, //sets the theme of the app to system's theme
-      home: const MySplashscreen(),//
+      home: //const CarCard(cardWidth: 316, carName: 'Toyota', price: '210000', transmission: 'Manual', fuelType: 'PMS', condition: 'Nigerian used',),
+      const MyHomeScreen(userName: 'Mutiu',),//const MySplashscreen(),//
     );
   }
 }

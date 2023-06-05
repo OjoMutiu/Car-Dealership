@@ -13,7 +13,7 @@ class FilterSetting extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: Size().getProportionateScreenWidth(44),
-      height: Size().getProportionateScreenWidth(44),
+      height: Size().getProportionateScreenHeight(52),
       decoration: BoxDecoration(
         color: kPrimaryColor,
         borderRadius: BorderRadius.circular(6),
