@@ -28,16 +28,9 @@ class _ButtonSwitcherState extends State<ButtonSwitcher> {
           children: [
             buildButton(0, 'All'),
             const SizedBox(width: 10,),
-            const VerticalDivider(
-              width: 20,
-              thickness: 1,
-              indent: 20,
-              endIndent: 0,
-              color: Colors.grey,
-            ),
-            // const Text('|'),
+            const Text('|'),
             const SizedBox(width: 10,),
-            buildButton(1, ' Used '),
+            buildButton(1, 'Used '),
             const SizedBox(width: 10,),
             const Text('|'),
             const SizedBox(width: 10,),
@@ -52,32 +45,23 @@ class _ButtonSwitcherState extends State<ButtonSwitcher> {
     final bool isSelected = buttonIndex == selectedButtonIndex;
 
     return isSelected
-        ? Row(
-          children:[ Expanded(
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom( shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6))),
-                onPressed: () {
-                  setState(() {
-                    selectedButtonIndex = buttonIndex;
-                  });
-                },
-                child: Text(
-                  text,
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyMedium
-                      ?.copyWith(color: Colors.white),
-                ),
+        ? Expanded(
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom( shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6))),
+              onPressed: () {
+                setState(() {
+                  selectedButtonIndex = buttonIndex;
+                });
+              },
+              child: Text(
+                text,
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyMedium
+                    ?.copyWith(color: Colors.white),
               ),
             ),
-            const VerticalDivider(
-              width: 20,
-              thickness: 1,
-              indent: 20,
-              endIndent: 0,
-              color: Colors.grey,
-            ),
-        ])
+          )
         : Expanded(
             child: TextButton(
               style: TextButton.styleFrom( shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6))),

@@ -31,9 +31,9 @@ class CarCad extends StatefulWidget {
 }
 
 class _CarCadState extends State<CarCad> {
+  bool isFavTap = false;
   @override
   Widget build(BuildContext context) {
-    String favIcon = 'assets/icons/favourite.svg';
     return Row(
       children: [
         SizedBox(
@@ -141,10 +141,11 @@ class _CarCadState extends State<CarCad> {
                 child: GestureDetector(
                   onTap: (){
                     setState(() {
-                      favIcon = 'assets/icons/lock.svg';
+                      isFavTap = !isFavTap;
                     });
                   },
-                  child: SvgPicture.asset(favIcon),
+                  child: !isFavTap? SvgPicture.asset('assets/icons/favourite.svg'):
+                  SvgPicture.asset('assets/icons/fav_colored.svg'),
                 ),
               ),
             ),

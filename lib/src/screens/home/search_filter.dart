@@ -11,25 +11,28 @@ class SearchFilter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Expanded(
-          child: buildTextFormField(
-            context,
-            validator: (value) {
-              return null;
-            },
-            onChanged: (value) {},
-            onSaved: (value) {},
-            hintText: 'Search by Brand, Model or Keywords',
-            textInputType: TextInputType.text,
-            svgIcon: 'assets/icons/searchLens.svg',
-            show: false,
+    return SizedBox(
+      height: Size().getProportionateScreenHeight(52),
+      child: Row(
+        children: [
+          Expanded(
+            child: buildTextFormField(
+              context,
+              validator: (value) {
+                return null;
+              },
+              onChanged: (value) {},
+              onSaved: (value) {},
+              hintText: 'Search by Brand, Model or Keywords',
+              textInputType: TextInputType.text,
+              svgIcon: 'assets/icons/searchLens.svg',
+              show: false,
+            ),
           ),
-        ),
-        SizedBox(width: Size().getProportionateScreenWidth(20)),
-        const FilterSetting(),
-      ],
+          SizedBox(width: Size().getProportionateScreenWidth(20)),
+          const FilterSetting(),
+        ],
+      ),
     );
   }
 }
