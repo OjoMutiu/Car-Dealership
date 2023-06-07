@@ -31,7 +31,7 @@ class Car {
 
 List<Car> demoTopChoiceCars = [
   Car(
-      images: ['assets/images/home_screen/image1.png'],
+      images: ['assets/images/home_screen/img.png','assets/images/home_screen/image1.png'],
       make: 'Toyota',
       model: 'land cruiser',
       body: 'sedan',

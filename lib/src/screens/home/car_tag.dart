@@ -12,16 +12,14 @@ class CarTag extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 4),
+      padding: EdgeInsets.only(bottom: Size().getProportionateScreenWidth(4)),
       child: Container(
         height: 20,
         padding: EdgeInsets.symmetric(
-            horizontal:
-            Size().getProportionateScreenWidth(4),
-            vertical: Size()
-                .getProportionateScreenHeight(3)),
+            horizontal: Size().getProportionateScreenWidth(8),
+            vertical: Size().getProportionateScreenHeight(4)),
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(2),
+            borderRadius: BorderRadius.circular(Size().getProportionateScreenWidth(4)),
             color: kPrimaryColor.withOpacity(0.15)),
         child: Text(
           text,
@@ -29,7 +27,7 @@ class CarTag extends StatelessWidget {
               .textTheme
               .labelSmall
               ?.copyWith(
-              color: kPrimaryColor, fontWeight: FontWeight.w600),
+              color: kPrimaryColor, fontWeight: FontWeight.normal),
         ),
       ),
     );

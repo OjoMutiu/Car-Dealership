@@ -44,12 +44,18 @@ class _CarCadState extends State<CarCad> {
                   children: [
                     GestureDetector(
                       onTap: widget.onTapCar,
-                      child: SizedBox(
-                          width: Size().getProportionateScreenWidth(widget.width),
-                          child: Image.asset(
-                            widget.image,
+                      child: ClipRRect(
+                        borderRadius: const BorderRadius.only(
+                            topLeft: Radius.circular(8),
+                            topRight: Radius.circular(8)),
+                        child: SizedBox(
+                          height: 110,
+                            width: Size().getProportionateScreenWidth(widget.width),
+                          child: Image.asset(widget.image,
                             fit: BoxFit.cover,
-                          )),
+                          ),
+                            ),
+                      ),
                     ),
                     Container(
                       padding: EdgeInsets.fromLTRB(

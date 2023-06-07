@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../constant/color.dart';
 import '../../constant/size.dart';
+import 'model/car_model.dart';
 
 class ButtonSwitcher extends StatefulWidget {
   const ButtonSwitcher({super.key});
@@ -13,12 +14,19 @@ class ButtonSwitcher extends StatefulWidget {
 class _ButtonSwitcherState extends State<ButtonSwitcher> {
   int selectedButtonIndex = 0;
 
+  List<Car> filteredCars = [];
+
+  @override
+  void initState() {
+    super.initState();
+    filteredCars = demoOloworayAutosCars;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(
-          horizontal: 4,
-          vertical: 3),
+      padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 3),
+      height: Size().getProportionateScreenHeight(34),
       decoration: BoxDecoration(
           color: kPrimaryColor.withOpacity(0.15),
           borderRadius: BorderRadius.circular(6)),
@@ -39,6 +47,19 @@ class _ButtonSwitcherState extends State<ButtonSwitcher> {
         ),
       ),
     );
+  }
+
+  void filterCar(){
+    setState(() {
+     filteredCars = demoOloworayAutosCars.where((car){
+       if(selectedButtonIndex == 0){
+         return true;
+       }else if(selectedButtonIndex == 1){
+         return car.condition == 'Foreign Used' || car.condition == 'Nigerian Used';
+       }
+       return false;
+     }).toList();
+    });
   }
 
   Widget buildButton(int buttonIndex, String text) {

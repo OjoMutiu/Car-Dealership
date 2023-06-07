@@ -23,8 +23,8 @@ class MyApp extends StatelessWidget {
       darkTheme: AppTheme.darkTheme, //for dark theme, change to darkTheme
       themeMode: ThemeMode.system, //sets the theme of the app to system's theme
       home: //const CarCard(cardWidth: 316, carName: 'Toyota', price: '210000', transmission: 'Manual', fuelType: 'PMS', condition: 'Nigerian used',),
-      //const MyHomeScreen(userName: 'Mutiu',),
-       const MySplashscreen(),//
+      const MyHomeScreen(userName: 'Mutiu',),
+      // const MySplashscreen(),//
     );
   }
 }
