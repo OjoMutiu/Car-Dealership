@@ -8,6 +8,7 @@ import 'package:oloworay_autos/src/screens/home/section_header.dart';
 import 'package:oloworay_autos/src/screens/home/switch_button.dart';
 
 import '../../constant/size.dart';
+import '../car_details/car_details.dart';
 import 'car_card.dart';
 import 'car_filter_card.dart';
 import 'home_page_user_profile_header.dart';
@@ -78,8 +79,14 @@ class _BodyState extends State<Body> {
                             fuel: demoTopChoiceCars[randomCarIndex].fuel,
                             condition: demoTopChoiceCars[randomCarIndex].condition,
                             image: demoTopChoiceCars[randomCarIndex].images[0],
-                            onTapCar: () {},
-                            onTapFav: () {},
+                            onTapCar: () {
+                              Navigator.push(context, MaterialPageRoute(builder:
+                                  (context) => CarDetails(carList: demoTopChoiceCars, cIndex: randomCarIndex )
+                              ));
+                            },
+                            onTapFav: () {
+
+                            },
                           );
                             },
                         )
@@ -110,7 +117,11 @@ class _BodyState extends State<Body> {
                             fuel: demoOloworayAutosCars[index].fuel,
                             condition: demoOloworayAutosCars[index].condition,
                             image: demoOloworayAutosCars[index].images[0],
-                            onTapCar: () {},
+                            onTapCar: () {
+                              Navigator.push(context, MaterialPageRoute(builder:
+                                  (context) => CarDetails(carList: demoOloworayAutosCars, cIndex: index )
+                              ));
+                            },
                             onTapFav: () {},
                           ),
                         )
@@ -140,7 +151,11 @@ class _BodyState extends State<Body> {
                           fuel: demoExploreCars[index].fuel,
                           condition: demoExploreCars[index].condition,
                           image: demoExploreCars[index].images[0],
-                          onTapCar: () {},
+                          onTapCar: () {
+                            Navigator.push(context, MaterialPageRoute(builder:
+                                (context) => CarDetails(carList: demoExploreCars, cIndex: index )
+                            ));
+                          },
                           onTapFav: () {},
                       );
                     },

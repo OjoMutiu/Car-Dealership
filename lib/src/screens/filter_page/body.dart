@@ -14,19 +14,49 @@ class _FilterPageBodyState extends State<FilterPageBody> {
   @override
   Widget build(BuildContext context) {
 
+    double progressValue = 0.00;
+
     return Padding(
       padding: EdgeInsets.symmetric(vertical: Size().getProportionateScreenHeight(18),
           horizontal: Size().getProportionateScreenWidth(20)),
       child: Column(
         children: [
           FilterField(title: 'Make', text: 'Mercedes-Benz', onPressed: (){},),
-          SizedBox(height: Size().getProportionateScreenHeight(16),),
+          SizedBox(height: Size().getProportionateScreenHeight(16)),
           FilterField(title: 'Model', text: 'CLS', onPressed: (){},),
-          SizedBox(height: Size().getProportionateScreenHeight(16),),
+          SizedBox(height: Size().getProportionateScreenHeight(16)),
           FilterField(title: 'Body', text: 'SUV', onPressed: (){},),
-          SizedBox(height: Size().getProportionateScreenHeight(16),),
+          SizedBox(height: Size().getProportionateScreenHeight(16)),
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: Size().getProportionateScreenWidth(10),
+            vertical: Size().getProportionateScreenHeight(7)),
+            decoration: BoxDecoration(
+                // color: kPrimaryColor.withOpacity(0.1),
+                borderRadius: BorderRadius.circular(6),
+                border: Border.all(
+                    width: 1,
+                    color: kPrimaryColor.withOpacity(0.1)
+                )
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('Year of Manufacture', style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                    color: kBodyTextColor
+                ),),
+                Slider(value: progressValue,
+                    min: 0.00,
+                    max: 100000,
+                    onChanged: (value){
+                  progressValue = value;
+                }),
+
+              ],
+            ),
+          ),
+          SizedBox(height: Size().getProportionateScreenHeight(16)),
           FilterField(title: 'Color', text: 'Blue', onPressed: (){},),
-          SizedBox(height: Size().getProportionateScreenHeight(16),),
+          SizedBox(height: Size().getProportionateScreenHeight(16)),
         ],
       ),
     );

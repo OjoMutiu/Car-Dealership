@@ -22,9 +22,11 @@ class CarCad extends StatefulWidget {
     required this.onTapFav,
   });
   final int year;
+
   final double width, price;
   final String image, make, model, location, transmission, fuel, condition;
   final GestureTapCallback onTapCar, onTapFav;
+
 
   @override
   State<CarCad> createState() => _CarCadState();
