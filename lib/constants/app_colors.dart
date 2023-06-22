@@ -42,4 +42,7 @@ class AppColors {
 
   //counter backgroundColor
   static const Color counterBgColor = Color(0xFFFF1607);
+
+  //HomePage banner background color
+  static const Color bannerBackground = Color(0xFF073436);
 }

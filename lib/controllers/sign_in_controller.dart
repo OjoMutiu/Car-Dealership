@@ -105,10 +105,6 @@ class UserSignInFormController extends GetxController{
       if (remember.value) {
         //Todo: what should be done if remember is selected
         print('What to do if remember is checked');
-      } else {
-        Get.snackbar('.', 'Please agree to terms and conditions',
-            snackPosition: SnackPosition.BOTTOM,
-            duration: const Duration(milliseconds: 1500));
       }
     } else if (!isFormValid.value) {
       if (!isUserEmailValid.value) {

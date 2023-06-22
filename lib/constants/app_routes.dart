@@ -21,7 +21,7 @@ class Routes {
   static String forgetPasswordOtp = '/forgetPasswordOtp';
   static String resetPassword = '/resetPassword';
   static String resetSuccessful = '/resetSuccessful';
-  static String myHomeScreen = '/MyHomeScreen';
+  static String myHomeScreen = '/myHomeScreen';
 
 }
 

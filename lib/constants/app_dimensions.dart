@@ -24,6 +24,7 @@ class AppDimension {
   static final double height12 = (screenHeight / 812) * 12;
   static final double height13 = (screenHeight / 812) * 13;
   static final double height14 = (screenHeight / 812) * 14;
+  static final double height15 = (screenHeight / 812) * 15;
   static final double height16 = (screenHeight / 812) * 16;
   static final double height20 = (screenHeight / 812) * 20;
   static final double height24 = (screenHeight / 812) * 24;
@@ -41,6 +42,7 @@ class AppDimension {
   static final double width12 = (screenWidth / 375) * 12;
   static final double width13 = (screenWidth / 375) * 13;
   static final double width14 = (screenWidth / 375) * 14;
+  static final double width15 = (screenWidth / 375) * 15;
   static final double width16 = (screenWidth / 375) * 16;
   static final double width20 = (screenWidth / 375) * 20;
   static final double width24 = (screenWidth / 375) * 24;

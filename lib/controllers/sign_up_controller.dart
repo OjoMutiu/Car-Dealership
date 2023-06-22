@@ -188,9 +188,11 @@ class UserSignUpFormController extends GetxController {
       if (agree.value) {
         Get.toNamed(Routes.otp);
       } else {
-        Get.snackbar('.', 'Please agree to terms and conditions',
+        Get.snackbar('','Agree to Terms of Service to continue',
+            colorText: AppColors.primary600,
+            backgroundColor: Colors.white,
             snackPosition: SnackPosition.BOTTOM,
-            duration: const Duration(milliseconds: 1500));
+            duration: const Duration(milliseconds: 2000));
       }
     } else if (!isFormValid.value) {
       if (!isFirstNameValid.value) {

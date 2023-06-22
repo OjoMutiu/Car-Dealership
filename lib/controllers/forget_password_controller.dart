@@ -14,8 +14,6 @@ class ForgetPasswordController extends GetxController{
   final RxBool isUserEmailValid = false.obs;
   final RxBool isFormValid = false.obs;
 
-  //checkBox
-  RxBool remember = false.obs;
 
   //Error list
   RxList emailErrors = [].obs;
@@ -48,14 +46,6 @@ class ForgetPasswordController extends GetxController{
     isFormValid.value = isUserEmailValid.value;
     if (isFormValid.value) {
       Get.toNamed(Routes.forgetPasswordOtp);
-      if (remember.value) {
-        //Todo: what should be done if remember is selected
-        print('What to do if remember is checked');
-      } else {
-        Get.snackbar('.', 'Please agree to terms and conditions',
-            snackPosition: SnackPosition.BOTTOM,
-            duration: const Duration(milliseconds: 1500));
-      }
     } else if (!isFormValid.value) {
       if (!isUserEmailValid.value) {
         validateEmail(email.value);

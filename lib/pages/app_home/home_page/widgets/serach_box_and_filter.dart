@@ -39,7 +39,8 @@ class SearchFilter extends StatelessWidget {
                   fontSize: AppDimension.font12,
                 ),
                 prefixIcon: Padding(
-                  padding: const EdgeInsets.all(10.0),
+                  padding: EdgeInsets.symmetric(horizontal: AppDimension.width10,
+                      vertical: AppDimension.height10 ),
                   child: SvgPicture.asset( 'assets/icons/searchLens.svg',
                     width: AppDimension.width10,
                     height: AppDimension.width10,
@@ -50,7 +51,7 @@ class SearchFilter extends StatelessWidget {
               ),
             )
           ),
-          SizedBox(width: AppDimension.width20),
+          SizedBox(width: AppDimension.width12),
           const FilterIconButton(),
         ],
       ),

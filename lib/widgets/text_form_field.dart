@@ -96,11 +96,13 @@ class _AppTextFieldState extends State<AppTextField> {
                                   fontSize: AppDimension.font14,
                                 ),
                         prefixIcon: Padding(
-                          padding: const EdgeInsets.all(10.0),
+                          padding: EdgeInsets.symmetric(horizontal: AppDimension.width10,
+                            vertical: AppDimension.height10
+                          ),
                           child: SvgPicture.asset(
                             widget.svgIcon!,
-                            width: AppDimension.width13,
-                            height: AppDimension.height13,
+                            // width: AppDimension.width12,
+                            // height: AppDimension.height12,
                             colorFilter: focusNode.hasFocus ? ColorFilter.mode(
                                 AppColors.black80, BlendMode.srcIn)
                                 :const ColorFilter.mode(

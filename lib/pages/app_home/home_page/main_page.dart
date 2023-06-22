@@ -22,7 +22,6 @@ class HomePageBody extends StatefulWidget {
 }
 
 class _HomePageBodyState extends State<HomePageBody> {
-  final int _numberOfItems = 4;
 
   @override
   Widget build(BuildContext context) {
@@ -39,10 +38,18 @@ class _HomePageBodyState extends State<HomePageBody> {
                 horizontal: AppDimension.getProportionateScreenWidth(20)),
             child: Column(
               children: [
-                SizedBox(height: AppDimension.getProportionateScreenHeight(50)),
-                UserHomePageProfile(numberOfItems: _numberOfItems),
-                SizedBox(height: AppDimension.getProportionateScreenHeight(20)),
-                const PageBanner(),
+                SizedBox(height: AppDimension.getProportionateScreenHeight(30)),
+                const UserHomePageProfile(),
+                SizedBox(height: AppDimension.height20),
+              ],
+            ),
+          ),
+          const PageBanner(),
+          Padding(
+            padding: EdgeInsets.symmetric(
+                horizontal: AppDimension.getProportionateScreenWidth(20)),
+            child: Column(
+              children: [
                 SizedBox(height: AppDimension.height20),
                 const SearchFilter(),
                 SizedBox(height: AppDimension.height24),

@@ -1,6 +1,4 @@
 
-import '../constants/app_strings.dart';
-
 class Content {
   final String headText, text, image;
   Content(

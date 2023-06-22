@@ -20,7 +20,7 @@ class IconButtonWithCounter extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: press,
-      borderRadius: BorderRadius.circular(8),
+      borderRadius: BorderRadius.circular(AppDimension.height8),
       child: Stack(
         clipBehavior: Clip.none,
         children: [
@@ -32,33 +32,31 @@ class IconButtonWithCounter extends StatelessWidget {
             ),
           ),
           Positioned(
-            right: -1,
+            right: -3,
             top: -5,
-            child: numberOfItems != null
+            child: numberOfItems! > 0
                 ? Container(
-              padding:
-              EdgeInsets.all(AppDimension.getProportionateScreenWidth(1)),
-              width: AppDimension.width14,
-              decoration: const BoxDecoration(
-                color: AppColors.counterBgColor,
-                shape: BoxShape.circle,
-              ),
-              child: Center(
-                child: Text(
-                  numberOfItems.toString(),
-                  style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                    color: Colors.white,
-                    fontSize: AppDimension.font10,
-                  )
+                  padding:
+                  EdgeInsets.symmetric(horizontal: AppDimension.getProportionateScreenWidth(4)),
+                  decoration: const BoxDecoration(
+                    color: AppColors.counterBgColor,
+                    shape: BoxShape.circle,
+                  ),
+                  child: Center(
+                    child: Text(
+                      numberOfItems.toString(),
+                      style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                        fontWeight: FontWeight.w700,
+                        color: Colors.white,
+                        fontSize: AppDimension.font10,
+                      )
                 ),
               ),
             )
                 : Container(
               padding:
-              EdgeInsets.all(AppDimension.getProportionateScreenWidth(1)),
-              width: AppDimension.width14,
+              EdgeInsets.all(AppDimension.getProportionateScreenWidth(4)),
               decoration: const BoxDecoration(
-                color: AppColors.counterBgColor,
                 shape: BoxShape.circle,
               ),
             ),

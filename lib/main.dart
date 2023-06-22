@@ -20,9 +20,8 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       initialBinding: AllControllerBinding(),
-      initialRoute: '/',
+      initialRoute: '/myHomeScreen',
       getPages: getPages,
-      title: 'Flutter Demo',
       theme: AppTheme.lightTheme,
     );
   }

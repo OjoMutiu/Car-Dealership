@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:oloworay_autos_/constants/app_colors.dart';
 import 'package:oloworay_autos_/constants/app_dimensions.dart';
@@ -22,13 +23,15 @@ class FilterIconButton extends StatelessWidget {
       ),
       child: InkWell(
         onTap: (){
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context)=> const FilterPage())
-          );
+          Get.to(() => const FilterPage()); //Todo: add to route
         },
         child: Padding(
-          padding: const EdgeInsets.all(12.0),
-          child: SvgPicture.asset('assets/icons/filter.svg'),
+          padding: EdgeInsets.symmetric(horizontal: AppDimension.width12,
+              vertical: AppDimension.height15
+          ),
+          child: SvgPicture.asset('assets/icons/filter.svg',
+            width: AppDimension.width20,
+            height: AppDimension.height20,),
         ),
       ),
     );
