@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:oloworay_autos_/constants/app_colors.dart';
 import 'package:oloworay_autos_/constants/app_dimensions.dart';
 
-
-
-
 class CarTag extends StatelessWidget {
   const CarTag({
     super.key, required this.text,

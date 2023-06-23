@@ -25,22 +25,23 @@ class _ButtonSwitcherState extends State<ButtonSwitcher> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 3),
+      padding: EdgeInsets.symmetric(horizontal: AppDimension.width4, 
+          vertical: AppDimension.getProportionateScreenHeight(3)),
       height: AppDimension.getProportionateScreenHeight(34),
       decoration: BoxDecoration(
-          color: AppColors.primary200,
-          borderRadius: BorderRadius.circular(6)),
+          color: AppColors.primary200.withOpacity(0.4),
+          borderRadius: BorderRadius.circular(AppDimension.height6)),
       child: Center(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             buildButton(0, 'All'),
             SizedBox(width: AppDimension.width10,),
-            const Text('|'),
+            selectedButtonIndex ==2 ? const Text('|') : const Text(' '),
             SizedBox(width: AppDimension.width10,),
             buildButton(1, 'Used '),
             SizedBox(width: AppDimension.width10,),
-            const Text('|'),
+            selectedButtonIndex ==0 ? const Text('|') : const Text(' '),
             SizedBox(width: AppDimension.width10,),
             buildButton(2, 'New'),
           ],
@@ -67,38 +68,38 @@ class _ButtonSwitcherState extends State<ButtonSwitcher> {
 
     return isSelected
         ? Expanded(
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom( shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6))),
-        onPressed: () {
-          setState(() {
-            selectedButtonIndex = buttonIndex;
-          });
-        },
-        child: Text(
-          text,
-          style: Theme.of(context)
-              .textTheme
-              .bodyMedium
-              ?.copyWith(color: Colors.white),
-        ),
-      ),
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom( shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6))),
+              onPressed: () {
+                setState(() {
+                  selectedButtonIndex = buttonIndex;
+                });
+              },
+              child: Text(
+                text,
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyMedium
+                    ?.copyWith(color: Colors.white),
+              ),
+            ),
     )
         : Expanded(
-      child: TextButton(
-        style: TextButton.styleFrom( shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6))),
-        onPressed: () {
-          setState(() {
-            selectedButtonIndex = buttonIndex;
-          });
-        },
-        child: Text(
-          text,
-          style: Theme.of(context)
-              .textTheme
-              .bodyMedium
-              ?.copyWith(color: AppColors.primary500),
-        ),
-      ),
+            child: TextButton(
+              style: TextButton.styleFrom( shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6))),
+              onPressed: () {
+                setState(() {
+                  selectedButtonIndex = buttonIndex;
+                });
+              },
+              child: Text(
+                text,
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyMedium
+                    ?.copyWith(color: AppColors.primary500),
+              ),
+            ),
     );
   }
 }

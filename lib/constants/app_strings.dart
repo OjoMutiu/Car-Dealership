@@ -117,3 +117,6 @@ String bannerImage1 = 'assets/images/home/banner_car.png';
 String bannerImage2 = 'assets/images/home/growth_arrow.png';
 String bannerHeaderText2 = 'Get 15% on your\n investment annually';
 String bannerButtonText2 = 'See Deals';
+
+//Home Icons
+String ratingIcon = 'assets/icons/rating.svg';

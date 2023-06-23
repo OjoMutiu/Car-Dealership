@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../constants/app_colors.dart';
 import '../../../../constants/app_dimensions.dart';
 
 
@@ -19,23 +20,32 @@ class CarFilterCard extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            width: AppDimension.getProportionateScreenWidth(48),
-            height: AppDimension.getProportionateScreenWidth(48),
+            width: AppDimension.width48,
+            height: AppDimension.getProportionateScreenHeight(60),
             decoration: BoxDecoration(
                 border: Border.all(
-                  color: Colors.black12,
-                  width: 0.5,
+                  color: AppColors.neutral300,
+                  width:AppDimension.width1,
                 ),
-                color: Colors.white60, borderRadius: BorderRadius.circular(40)),
-            child: Center(
-                child: Image.asset(imgSrc)),
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(AppDimension.height40)),
+            child: Container(
+              padding: EdgeInsets.symmetric(
+                vertical: AppDimension.height8,
+                  horizontal: AppDimension.width8
+              ),
+              child: Image.asset(imgSrc),
+            ),
           ),
-          SizedBox(height: AppDimension.height6,),
+          SizedBox(height: AppDimension.height6),
           Text(carName,
+              textAlign: TextAlign.center,
               style: Theme.of(context)
                   .textTheme
-                  .bodySmall
-                  ?.copyWith(fontSize: 10, fontWeight: FontWeight.normal)),
+                  .labelSmall
+                  ?.copyWith(
+                  color: AppColors.black100,
+                  fontSize: AppDimension.font10)),
         ],
       ),
     );

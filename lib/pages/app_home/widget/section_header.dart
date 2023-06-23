@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:oloworay_autos_/constants/app_dimensions.dart';
 
 import '../../../constants/app_colors.dart';
-
-
 
 
 class SectionHeader extends StatelessWidget {
@@ -23,7 +22,9 @@ class SectionHeader extends StatelessWidget {
           style: Theme.of(context)
               .textTheme
               .bodyMedium
-              ?.copyWith(color: AppColors.primary600),
+              ?.copyWith(
+            fontSize: AppDimension.font14,
+              color: AppColors.text),
         ),
         const Spacer(),
         TextButton(
@@ -33,7 +34,10 @@ class SectionHeader extends StatelessWidget {
               style: Theme.of(context)
                   .textTheme
                   .bodyMedium
-                  ?.copyWith(color: AppColors.primary500),
+                  ?.copyWith(
+                fontSize: AppDimension.font14,
+                  color: AppColors.primary500
+              ),
             ))
       ],
     ):Row(
@@ -43,7 +47,9 @@ class SectionHeader extends StatelessWidget {
           style: Theme.of(context)
               .textTheme
               .bodyMedium
-              ?.copyWith(color: AppColors.primary600),
+              ?.copyWith(
+              fontSize: AppDimension.font14,
+              color: AppColors.text),
         ),
       ],
     );

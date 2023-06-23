@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:oloworay_autos_/constants/app_dimensions.dart';
 import 'package:oloworay_autos_/pages/app_home/home_page/widgets/avatar_and_username.dart';
 import 'package:oloworay_autos_/pages/app_home/home_page/widgets/car_brands.dart';
@@ -31,6 +32,7 @@ class _HomePageBodyState extends State<HomePageBody> {
     int index3 = random.nextInt(demoOloworayAutosCars.length);
     int index4 = random.nextInt(demoExploreCars.length);
     return SingleChildScrollView(
+      scrollDirection: Axis.vertical,
       child: Column(
         children: [
           Padding(
@@ -50,7 +52,7 @@ class _HomePageBodyState extends State<HomePageBody> {
                 horizontal: AppDimension.getProportionateScreenWidth(20)),
             child: Column(
               children: [
-                SizedBox(height: AppDimension.height20),
+                SizedBox(height: AppDimension.height25),
                 const SearchFilter(),
                 SizedBox(height: AppDimension.height24),
                 const CarBrands(),
@@ -61,11 +63,11 @@ class _HomePageBodyState extends State<HomePageBody> {
             ),
           ),
           Padding(
-            padding: EdgeInsets.only(left: AppDimension.getProportionateScreenWidth(20)),
+            padding: EdgeInsets.only(left: AppDimension.width20),
             child: Column(
               children: [
                 const SectionHeader(sectionText: 'Top choice'),
-                SizedBox(height: AppDimension.getProportionateScreenHeight(12)),
+                SizedBox(height: AppDimension.height12),
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(
@@ -86,9 +88,7 @@ class _HomePageBodyState extends State<HomePageBody> {
                             condition: demoTopChoiceCars[randomCarIndex].condition,
                             image: demoTopChoiceCars[randomCarIndex].images[0],
                             onTapCar: () {
-                              Navigator.push(context, MaterialPageRoute(builder:
-                                  (context) => CarDetails(carList: demoTopChoiceCars, cIndex: randomCarIndex )
-                              ));
+                             Get.to(()=> CarDetails(carList: demoTopChoiceCars, cIndex: randomCarIndex ));
                             },
                             onTapFav: () {
 
@@ -105,7 +105,7 @@ class _HomePageBodyState extends State<HomePageBody> {
                   btnText: 'View all',
                   onPressed: () {},
                 ),
-                SizedBox(height: AppDimension.getProportionateScreenHeight(12)),
+                SizedBox(height: AppDimension.height12),
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(
@@ -125,9 +125,7 @@ class _HomePageBodyState extends State<HomePageBody> {
                           condition: demoOloworayAutosCars[index].condition,
                           image: demoOloworayAutosCars[index].images[0],
                           onTapCar: () {
-                            Navigator.push(context, MaterialPageRoute(builder:
-                                (context) => CarDetails(carList: demoOloworayAutosCars, cIndex: index )
-                            ));
+                            Get.to(() => CarDetails(carList: demoOloworayAutosCars, cIndex: index ));
                           },
                           onTapFav: () {},
                         ),
@@ -135,15 +133,15 @@ class _HomePageBodyState extends State<HomePageBody> {
                     ],
                   ),
                 ),
-                SizedBox(height: AppDimension.getProportionateScreenHeight(24)),
+                SizedBox(height: AppDimension.height24),
                 const SectionHeader(sectionText: 'Explore Cars'),
-                SizedBox(height: AppDimension.getProportionateScreenHeight(12)),
+                SizedBox(height: AppDimension.height12),
                 GridView.builder(
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
-                    childAspectRatio: 0.6,
+                    childAspectRatio: 0.78,
                   ),
                   itemCount: demoExploreCars.length,
                   itemBuilder: (context, index) {
@@ -160,9 +158,7 @@ class _HomePageBodyState extends State<HomePageBody> {
                       condition: demoExploreCars[index].condition,
                       image: demoExploreCars[index].images[0],
                       onTapCar: () {
-                        Navigator.push(context, MaterialPageRoute(builder:
-                            (context) => CarDetails(carList: demoExploreCars, cIndex: index )
-                        ));
+                        Get.to(()=> CarDetails(carList: demoExploreCars, cIndex: index ));
                       },
                       onTapFav: () {},
                     );

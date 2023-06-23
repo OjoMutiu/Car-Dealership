@@ -5,6 +5,7 @@ import 'package:oloworay_autos_/pages/authentication/sign_in/sign_in.dart';
 import 'package:oloworay_autos_/pages/authentication/verification/sign_up_otp/otp.dart';
 import 'package:oloworay_autos_/pages/splash/splash_screen.dart';
 
+import '../pages/app_home/filter/filter_page.dart';
 import '../pages/app_home/home.dart';
 import '../pages/authentication/reset_password/reset_password.dart';
 import '../pages/authentication/sign_up/sign_up.dart';
@@ -22,6 +23,7 @@ class Routes {
   static String resetPassword = '/resetPassword';
   static String resetSuccessful = '/resetSuccessful';
   static String myHomeScreen = '/myHomeScreen';
+  static String filterPage = '/filterPage';
 
 }
 
@@ -56,4 +58,8 @@ final getPages = [
   GetPage(name: Routes.myHomeScreen,
     page: () => const MyHomeScreen(),
   ),
+  GetPage(name: Routes.filterPage,
+    page: () => const FilterPage(),
+  ),
+
 ];

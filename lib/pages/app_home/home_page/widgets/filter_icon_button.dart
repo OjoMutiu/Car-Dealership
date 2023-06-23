@@ -4,7 +4,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:oloworay_autos_/constants/app_colors.dart';
 import 'package:oloworay_autos_/constants/app_dimensions.dart';
 
-import '../../filter/filter_page.dart';
 
 
 class FilterIconButton extends StatelessWidget {
@@ -23,7 +22,7 @@ class FilterIconButton extends StatelessWidget {
       ),
       child: InkWell(
         onTap: (){
-          Get.to(() => const FilterPage()); //Todo: add to route
+          Get.toNamed('/filterPage'); //Todo: add to route
         },
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: AppDimension.width12,

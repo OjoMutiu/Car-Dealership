@@ -21,11 +21,11 @@ class CarBrands extends StatelessWidget {
       {"image": "assets/images/home/BMW.png", "name": "BMW"},
     ];
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: AppDimension.getProportionateScreenWidth(15),
+      padding: EdgeInsets.symmetric(horizontal: AppDimension.width20,
           vertical: AppDimension.height20),
       decoration: BoxDecoration(
-          color: AppColors.primary200.withOpacity(0.03),
-          borderRadius: BorderRadius.circular(12)
+          color: AppColors.carTagColor,
+          borderRadius: BorderRadius.circular(AppDimension.height12)
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
