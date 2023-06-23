@@ -292,14 +292,19 @@ class _CarDetailsBodyState extends State<CarDetailsBody> {
                             ],
                           ),
                           Container(
+                            padding: EdgeInsets.symmetric(horizontal: AppDimension.width16,
+                                vertical: AppDimension.height12),
                             decoration: BoxDecoration(
-                              color: AppColors.ratingColor.withOpacity(0.1),
+                              color: AppColors.ratingColor.withOpacity(0.2),
                               borderRadius: BorderRadius.circular(AppDimension.getProportionateScreenHeight(52)),
                             ),
                             child: Row(
                               children: [
                                 SvgPicture.asset(ratingIcon),
-
+                                SizedBox(width: AppDimension.width12),
+                                Text('4(20)', style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                                  color: AppColors.text,
+                                ),),
                               ],
                             ),
                           )
