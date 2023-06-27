@@ -256,7 +256,7 @@ List<Car> demoExploreCars = [
       mileage: 1234,
       isRegistered: true,
       description: 'A very sound Toyota camry working very perfectly okay. Has brand new tyres. Nothing to fix, just buy and drive.',
-      condition: 'Foreign Used'),
+      condition: 'Foriegn nnn  Used'),
   Car(
       images: ['assets/images/home/image7.png'],
       make: 'Toyota',

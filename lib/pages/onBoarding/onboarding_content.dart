@@ -21,12 +21,11 @@ class OnBoardingContent extends StatelessWidget {
       children: [
         SizedBox(height: AppDimension.getProportionateScreenHeight(20)),
         Obx(() {
-          return Container(
+          return SizedBox(
             height: controller.currentPage.value ==
                     controller.onBoardingContent.length - 2
                 ? AppDimension.getProportionateScreenHeight(300)
                 : AppDimension.getProportionateScreenHeight(333),
-            color: Colors.white,
             child: Image.asset(image),
           );
         }),

@@ -27,23 +27,6 @@ class CustomBottomNavigationBar extends StatelessWidget {
           SizedBox(
             width: AppDimension.screenWidth/2 - 34,
             height: AppDimension.getProportionateScreenHeight(48),
-            child: ElevatedButton(
-                onPressed: (){
-                  //todo:
-                },
-                child: Text(
-                  'Call dealer',
-                  style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                    color: Colors.white,
-                    fontWeight: FontWeight.normal,
-                  ),
-                )
-            ),
-          ),
-          SizedBox(width: AppDimension.width20,),
-          SizedBox(
-            width: AppDimension.screenWidth/2 - 34,
-            height: AppDimension.getProportionateScreenHeight(48),
             child: OutlinedButton(
               onPressed: () {
                 //todo:
@@ -54,12 +37,29 @@ class CustomBottomNavigationBar extends StatelessWidget {
                     color: AppColors.primary500),
               ),
               child: Text(
-                'Sign in',
+                'Call dealer',
                 style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                   color: AppColors.primary500,
                   fontWeight: FontWeight.normal,
                 ),
               ),
+            ),
+          ),
+          SizedBox(width: AppDimension.width20,),
+          SizedBox(
+            width: AppDimension.screenWidth/2 - 34,
+            height: AppDimension.getProportionateScreenHeight(48),
+            child: ElevatedButton(
+                onPressed: (){
+                  //todo:
+                },
+                child: Text(
+                  'Message',
+                  style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                    color: Colors.white,
+                    fontWeight: FontWeight.normal,
+                  ),
+                )
             ),
           ),
         ],

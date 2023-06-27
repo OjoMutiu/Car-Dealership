@@ -8,9 +8,9 @@ import 'car_tags.dart';
 
 
 class CarCad extends StatefulWidget {
-  const CarCad({
+  CarCad({
     super.key,
-    required this.width,
+    this.width,
     required this.year,
     required this.price,
     required this.make,
@@ -21,14 +21,15 @@ class CarCad extends StatefulWidget {
     required this.condition,
     required this.image,
     required this.onTapCar,
-    required this.onTapFav, this.wrapHeight,
+    required this.onTapFav, this.wrapHeight, this.isFavTap  = false,
   });
   final int year;
 
-  final double width, price;
-  final double? wrapHeight;
+  final double  price;
+  final double? width, wrapHeight;
   final String image, make, model, location, transmission, fuel, condition;
   final GestureTapCallback onTapCar, onTapFav;
+  bool isFavTap;
 
 
   @override
@@ -36,13 +37,13 @@ class CarCad extends StatefulWidget {
 }
 
 class _CarCadState extends State<CarCad> {
-  bool isFavTap = false;
+  //bool isFavTap = false;
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
         SizedBox(
-          width: AppDimension.getProportionateScreenWidth(widget.width),
+          width: widget.width != null ? AppDimension.getProportionateScreenWidth(widget.width!): null,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -53,8 +54,8 @@ class _CarCadState extends State<CarCad> {
                       topLeft: Radius.circular(AppDimension.height8),
                       topRight: Radius.circular(AppDimension.height8)),
                   child: SizedBox(
-                    height: AppDimension.getProportionateScreenHeight(102),
-                    width: AppDimension.getProportionateScreenWidth(widget.width),
+                    height: AppDimension.getProportionateScreenHeight(105),
+                    width: widget.width != null ? AppDimension.getProportionateScreenWidth(widget.width!): null,
                     child: Image.asset(widget.image,
                       fit: BoxFit.cover,
                     ),
@@ -111,7 +112,9 @@ class _CarCadState extends State<CarCad> {
                             style: Theme.of(context)
                                 .textTheme
                                 .labelLarge
-                                ?.copyWith(color: AppColors.text),
+                                ?.copyWith(
+                                fontSize: AppDimension.font12,
+                                color: AppColors.text),
                           ),
                           SizedBox(
                               height: AppDimension.height8),
@@ -121,14 +124,14 @@ class _CarCadState extends State<CarCad> {
                                 .textTheme
                                 .bodyLarge
                                 ?.copyWith(
+                              fontSize: AppDimension.font14,
                                 color: AppColors.primary500),
                           ),
                           SizedBox(
                               height: AppDimension.height12),
                           Container(
                             alignment: Alignment.bottomLeft,
-                            height:  widget.wrapHeight != null ? AppDimension.getProportionateScreenHeight(44)
-                                : null,
+                            height:  AppDimension.getProportionateScreenHeight(44),
                             child: Wrap(
                               spacing: AppDimension.width4,
                               children: [
@@ -155,10 +158,10 @@ class _CarCadState extends State<CarCad> {
                       child: GestureDetector(
                         onTap: (){
                           setState(() {
-                            isFavTap = !isFavTap;
+                           widget.isFavTap = !widget.isFavTap;
                           });
                         },
-                        child: !isFavTap? SvgPicture.asset('assets/icons/favourite.svg'):
+                        child: !widget.isFavTap? SvgPicture.asset('assets/icons/favourite.svg'):
                         SvgPicture.asset('assets/icons/fav_colored.svg'),
                       ),
                     ),

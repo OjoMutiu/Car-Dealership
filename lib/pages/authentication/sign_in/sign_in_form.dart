@@ -23,10 +23,8 @@ class _SignInFormState extends State<SignInForm> {
   Widget build(BuildContext context) {
     return Form(
         child: Column(
-          children: [
-            SizedBox(
-              height: AppDimension.getProportionateScreenHeight(28),
-            ),
+      children: [
+            SizedBox(height: AppDimension.getProportionateScreenHeight(28)),
             AppTextField(
               show: false,
               hintText: signUpEmail,
@@ -42,8 +40,8 @@ class _SignInFormState extends State<SignInForm> {
               headerText: 'Email address',
               asterisk: '',
             ),
-            Obx(() => FormError(
-                errors: controller.emailErrors.cast<String>().toList())),
+            Obx(() =>
+                FormError(errors: controller.emailErrors.cast<String>().toList())),
             SizedBox(
               height: AppDimension.getProportionateScreenHeight(20),
             ),
@@ -59,19 +57,21 @@ class _SignInFormState extends State<SignInForm> {
                     _showPassword = !_showPassword;
                   });
                 },
-                child: _showPassword ? Text(
-                  'hide',
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyMedium
-                      ?.copyWith(fontSize: 12),
-                ):Text(
-                  'show',
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyMedium
-                      ?.copyWith(fontSize: 12),
-                ),
+                child: _showPassword
+                    ? Text(
+                        'hide',
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyMedium
+                            ?.copyWith(fontSize: AppDimension.font12),
+                      )
+                    : Text(
+                        'show',
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyMedium
+                            ?.copyWith(fontSize: AppDimension.font12),
+                      ),
               ),
               show: !_showPassword,
               validator: (String? value) {
@@ -80,13 +80,11 @@ class _SignInFormState extends State<SignInForm> {
               onChanged: (String value) {
                 controller.validatePassword(value);
               },
-              onSaved: (String? newValue) {
-              },
+              onSaved: (String? newValue) {},
             ),
             Obx(() => PassWordFormError(
-                errors: controller.passwordErrors.cast<String>().toList()
-            )),
-          ],
-        ));
+                errors: controller.passwordErrors.cast<String>().toList())),
+      ],
+    ));
   }
 }

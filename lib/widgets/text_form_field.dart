@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:oloworay_autos_/widgets/text_form_field_header.dart';
 
 import '../constants/app_colors.dart';
 import '../constants/app_dimensions.dart';
@@ -55,23 +56,8 @@ class _AppTextFieldState extends State<AppTextField> {
   Widget build(BuildContext context) {
     return Column(
         children: [
-          Row(
-            children: [
-              Text(widget.headerText,
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodySmall
-                      ?.copyWith(color: AppColors.text)),
-              widget.asterisk != null
-                  ? Text('*',
-                      style: Theme.of(context)
-                          .textTheme
-                          .bodySmall
-                          ?.copyWith(color: AppColors.text))
-                  : const Text(''),
-            ],
-          ),
-          SizedBox(height: AppDimension.height8,),
+          TextFormFieldHeader(headerText: widget.headerText, asterisk: widget.asterisk),
+          SizedBox(height: AppDimension.height8),
           widget.svgIcon != null
               ?  SizedBox(
                     height: AppDimension.height52,
@@ -96,9 +82,7 @@ class _AppTextFieldState extends State<AppTextField> {
                                   fontSize: AppDimension.font14,
                                 ),
                         prefixIcon: Padding(
-                          padding: EdgeInsets.symmetric(horizontal: AppDimension.width10,
-                            vertical: AppDimension.height10
-                          ),
+                          padding: EdgeInsets.symmetric(horizontal: AppDimension.width10, vertical: AppDimension.height13),
                           child: SvgPicture.asset(
                             widget.svgIcon!,
                             // width: AppDimension.width12,

@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:oloworay_autos_/constants/app_strings.dart';
 import 'package:oloworay_autos_/controllers/sign_up_controller.dart';
+import 'package:oloworay_autos_/widgets/text_form_field_header.dart';
 
 import '../../../constants/app_colors.dart';
 import '../../../constants/app_dimensions.dart';
@@ -54,22 +55,7 @@ class _AppPhoneTextFieldState extends State<AppPhoneTextField> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Row(
-          children: [
-            Text(widget.headerText,
-                style: Theme.of(context)
-                    .textTheme
-                    .bodySmall
-                    ?.copyWith(color: AppColors.text)),
-            widget.asterisk != null
-                ? Text('*',
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodySmall
-                        ?.copyWith(color: AppColors.text))
-                : const Text(''),
-          ],
-        ),
+        TextFormFieldHeader(headerText: widget.headerText, asterisk: widget.asterisk),
         SizedBox(
           height: AppDimension.height8,
         ),

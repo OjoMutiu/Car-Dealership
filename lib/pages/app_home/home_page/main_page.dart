@@ -113,7 +113,7 @@ class _HomePageBodyState extends State<HomePageBody> {
                       ...List.generate(
                         demoOloworayAutosCars.length,
                             (index) => CarCad(
-                              wrapHeight: 44,
+                              //wrapHeight: 44,
                           width: 144,
                           year: demoOloworayAutosCars[index].yearOfManufacture,
                           price: demoOloworayAutosCars[index].priceOfCar,
@@ -139,14 +139,15 @@ class _HomePageBodyState extends State<HomePageBody> {
                 GridView.builder(
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
-                    childAspectRatio: 0.78,
+                    childAspectRatio: 0.8,
+                    mainAxisSpacing: AppDimension.height10
                   ),
                   itemCount: demoExploreCars.length,
                   itemBuilder: (context, index) {
                     return CarCad(
-                      wrapHeight: 44,
+                      //wrapHeight: 74,
                       width: 157,
                       year: demoExploreCars[index].yearOfManufacture,
                       price: demoExploreCars[index].priceOfCar,

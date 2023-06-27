@@ -65,6 +65,7 @@ class AppDimension {
   static final double font16 = (screenHeight / 812) * 16;
   static final double font14 = (screenHeight / 812) * 14;
   static final double font12 = (screenHeight / 812) * 12;
+  static final double font11 = (screenHeight / 812) * 11;
   static final double font10 = (screenHeight / 812) * 10;
   static final double font8 = (screenHeight / 812) * 8;
 }

@@ -17,7 +17,9 @@ class HeaderSection extends StatelessWidget {
           color: AppColors.text,
           fontSize: AppDimension.font20
         ),),
-        Text(sText, style: Theme.of(context).textTheme.bodyMedium)
+        Text(sText, style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+          fontSize: AppDimension.font14
+        ))
       ],
     );
   }

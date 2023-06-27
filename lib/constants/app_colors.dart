@@ -47,5 +47,5 @@ class AppColors {
   static const Color bannerBackground = Color(0xFF073436);
 
   //Car details page
-static const Color ratingColor = Color(0xFFF2C94C);
+  static const Color ratingColor = Color(0xFFF2C94C);
 }

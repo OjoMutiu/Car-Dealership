@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:oloworay_autos_/constants/app_colors.dart';
+import 'package:oloworay_autos_/constants/app_dimensions.dart';
 
 
 class RowTextButton extends StatelessWidget {
@@ -21,7 +22,9 @@ class RowTextButton extends StatelessWidget {
             style: textTextStyle ?? Theme.of(context)
                 .textTheme
                 .bodySmall
-                ?.copyWith(color: AppColors.textBody1)),
+                ?.copyWith(
+                fontSize: AppDimension.font14,
+                color: AppColors.textBody1)),
         GestureDetector(
           onTap: tap,
           child: Text(
@@ -29,7 +32,9 @@ class RowTextButton extends StatelessWidget {
             style: btnTextStyle ?? Theme.of(context)
                 .textTheme
                 .bodySmall
-                ?.copyWith(color: AppColors.primary500),
+                ?.copyWith(
+                fontSize: AppDimension.font14,
+                color: AppColors.primary500),
           ),
         )
       ],

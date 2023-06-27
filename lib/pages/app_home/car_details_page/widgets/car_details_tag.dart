@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:oloworay_autos_/constants/app_colors.dart';
+import 'package:oloworay_autos_/constants/app_dimensions.dart';
 
 import 'car_details_body.dart';
 
@@ -16,14 +18,15 @@ class CarDetailTag extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(headerText, style: const TextStyle(
-            color: Color(0xFFB5B5B5),
-            fontSize: 11,
+        Text(headerText, style: TextStyle(
+            color: const Color(0xFFB5B5B5),
+            fontSize: AppDimension.font11,
             fontWeight: FontWeight.normal
         ),),
         Text(text,
           style: Theme.of(context).textTheme.bodySmall?.copyWith(
-              color: const Color(0xFF0B4D51)
+              color: AppColors.primary600,
+            fontSize: AppDimension.font14
           ),),
       ],
     );

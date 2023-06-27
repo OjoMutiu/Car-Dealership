@@ -80,7 +80,9 @@ class _ButtonSwitcherState extends State<ButtonSwitcher> {
                 style: Theme.of(context)
                     .textTheme
                     .bodyMedium
-                    ?.copyWith(color: Colors.white),
+                    ?.copyWith(
+                    fontSize: AppDimension.font14,
+                    color: Colors.white),
               ),
             ),
     )
@@ -97,7 +99,9 @@ class _ButtonSwitcherState extends State<ButtonSwitcher> {
                 style: Theme.of(context)
                     .textTheme
                     .bodyMedium
-                    ?.copyWith(color: AppColors.primary500),
+                    ?.copyWith(
+                    fontSize: AppDimension.font12,
+                    color: AppColors.primary500),
               ),
             ),
     );

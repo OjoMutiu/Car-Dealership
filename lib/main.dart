@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       initialBinding: AllControllerBinding(),
-      initialRoute: '/myHomeScreen',
+      initialRoute: '/',
       getPages: getPages,
       theme: AppTheme.lightTheme,
     );

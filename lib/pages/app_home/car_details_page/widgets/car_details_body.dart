@@ -124,7 +124,9 @@ class _CarDetailsBodyState extends State<CarDetailsBody> {
                                               onPressed: () {
                                                 Get.back();
                                               },
-                                              child: const Text('Close'))
+                                              child: const Text('Close', style: TextStyle(
+                                                color: AppColors.secondary500
+                                              ),))
                                         ],
                                       );
                                     });
@@ -303,6 +305,7 @@ class _CarDetailsBodyState extends State<CarDetailsBody> {
                                 SvgPicture.asset(ratingIcon),
                                 SizedBox(width: AppDimension.width12),
                                 Text('4(20)', style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                                  fontSize: AppDimension.font12,
                                   color: AppColors.text,
                                 ),),
                               ],

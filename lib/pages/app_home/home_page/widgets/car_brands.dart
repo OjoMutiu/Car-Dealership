@@ -24,7 +24,7 @@ class CarBrands extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: AppDimension.width20,
           vertical: AppDimension.height20),
       decoration: BoxDecoration(
-          color: AppColors.carTagColor,
+          color: AppColors.carTagColor.withOpacity(0.2),
           borderRadius: BorderRadius.circular(AppDimension.height12)
       ),
       child: Row(

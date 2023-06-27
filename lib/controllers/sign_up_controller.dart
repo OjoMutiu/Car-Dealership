@@ -20,12 +20,16 @@ class UserSignUpFormController extends GetxController {
   final countryPicker = const FlCountryCodePicker();
   CountryCode? countryCode;
   var selectedCountryCode = '+234'.obs;
-  BuildContext? context = Get.context;
+  late BuildContext context;
 
-  onTap() async {
-    final code = await countryPicker.showPicker(context: context!);
-      selectedCountryCode.value = code!.dialCode;
+  void onTap() async {
+    context = Get.context!;
+     final code = await countryPicker.showPicker(context: context);
+     if(code != null){
+       selectedCountryCode.value = code.dialCode;
+     }
   }
+
 
   //text field icon color changing
   var prefixIconColor = AppColors.black80.obs;

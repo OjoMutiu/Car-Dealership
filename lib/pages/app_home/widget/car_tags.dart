@@ -24,7 +24,7 @@ class CarTag extends StatelessWidget {
           text,
           style: Theme.of(context)
               .textTheme
-              .labelSmall
+              .bodySmall
               ?.copyWith(
             fontSize: AppDimension.font8,
               color: AppColors.primary600

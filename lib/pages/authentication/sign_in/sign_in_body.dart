@@ -36,6 +36,9 @@ class _BodyState extends State<Body> {
                   children: [
                     Obx(
                       () => Checkbox(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(AppDimension.height6)
+                        ),
                         value: controller.remember.value,
                         activeColor: AppColors.primary500,
                         onChanged: (value) {
@@ -47,7 +50,9 @@ class _BodyState extends State<Body> {
                     Text('Remember me', style: Theme.of(context)
                         .textTheme
                         .bodySmall
-                        ?.copyWith(color: AppColors.textBody)),
+                        ?.copyWith(
+                        fontSize: AppDimension.font14,
+                        color: AppColors.textBody)),
                     const Spacer(),
                     GestureDetector(
                       onTap: (){
@@ -56,7 +61,9 @@ class _BodyState extends State<Body> {
                       child: Text('Forgot Password?',style: Theme.of(context)
                           .textTheme
                           .bodySmall
-                          ?.copyWith(color: AppColors.primary500)),
+                          ?.copyWith(
+                          fontSize: AppDimension.font14,
+                          color: AppColors.primary500)),
                     ),
                   ],
                 ),
