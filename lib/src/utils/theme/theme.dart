@@ -18,7 +18,8 @@ class AppTheme {
     outlinedButtonTheme: OutlinedButtonThemeData(
       style: OutlinedButton.styleFrom(
         shape: RoundedRectangleBorder(
-          side: const BorderSide(width: 7,
+          side: const BorderSide(
+              width: 7,
           color: kPrimaryColor ),
           borderRadius: BorderRadius.circular(6),
         ),
