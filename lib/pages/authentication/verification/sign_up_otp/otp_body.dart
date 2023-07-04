@@ -48,7 +48,7 @@ class OtpBody extends StatelessWidget {
           ),
           SizedBox(height: AppDimension.getProportionateScreenHeight(40.0)),
           const OtpForm(),
-          const Spacer(flex: 1,),
+          const Spacer(flex: 5,),
           // SizedBox(height: AppDimension.getProportionateScreenHeight(250.0)),
           RowTextButton(
             tap: () {
@@ -65,7 +65,7 @@ class OtpBody extends StatelessWidget {
             bText: bVerify,
             bIcon: forwardArrow,
           ),
-          const Spacer(flex: 5,),
+          const Spacer(flex: 1,),
         ]));
   }
 }

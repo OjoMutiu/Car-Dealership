@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:oloworay_autos_/constants/app_colors.dart';
-import 'package:oloworay_autos_/controllers/on_boarding_page_controller.dart';
 import 'package:oloworay_autos_/widgets/default_elevated_button.dart';
 import 'package:oloworay_autos_/widgets/default_outlined_button.dart';
 
 import '../../constants/app_dimensions.dart';
 import '../../constants/app_routes.dart';
 import '../../constants/app_strings.dart';
+import '../../controllers/on_boarding_page_controller.dart';
 import 'dots.dart';
 import 'onboarding_content.dart';
 
 class OnBoardingPage extends StatelessWidget {
   OnBoardingPage({Key? key}) : super(key: key);
 
-  final OnBoardingPageController _controller =
+  final OnBoardingPageController controller =
       Get.put(OnBoardingPageController());
 
   @override
@@ -32,7 +32,7 @@ class OnBoardingPage extends StatelessWidget {
                   const Spacer(),
                   TextButton(
                       onPressed: () {
-                        _controller.nextPage();
+                        controller.nextPage();
                       },
                       child: Text(
                         'Skip',
@@ -47,18 +47,18 @@ class OnBoardingPage extends StatelessWidget {
               ),
               Expanded(
                 child: PageView.builder(
-                    controller: _controller.controller,
-                    itemCount: _controller.onBoardingContent.length,
+                    controller: controller.controller,
+                    itemCount: controller.onBoardingContent.length,
                     onPageChanged: (int index) {
-                      _controller.currentPage.value = index;
+                      controller.currentPage.value = index;
                     },
                     itemBuilder: (BuildContext context, int index) {
                       //index = 2;
                       return OnBoardingContent(
                           headText:
-                              _controller.onBoardingContent[index].headText,
-                          text: _controller.onBoardingContent[index].text,
-                          image: _controller.onBoardingContent[index].image);
+                              controller.onBoardingContent[index].headText,
+                          text: controller.onBoardingContent[index].text,
+                          image: controller.onBoardingContent[index].image);
                     }),
               ),
               SizedBox(height: AppDimension.getProportionateScreenHeight(12)),
@@ -68,18 +68,18 @@ class OnBoardingPage extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: List.generate(
-                          _controller.onBoardingContent.length,
+                          controller.onBoardingContent.length,
                           (index) => buildDot(index: index)),
                     ),
                     SizedBox(
-                      height: _controller.currentPage.value ==
-                              _controller.onBoardingContent.length - 1
+                      height: controller.currentPage.value ==
+                              controller.onBoardingContent.length - 1
                           ? AppDimension.height36
                           : AppDimension.height100,
                     ),
                     Container(
-                      child: _controller.currentPage.value ==
-                              _controller.onBoardingContent.length - 1
+                      child: controller.currentPage.value ==
+                              controller.onBoardingContent.length - 1
                           ? Container(
                               color: Colors.white,
                               child: Column(
@@ -102,7 +102,7 @@ class OnBoardingPage extends StatelessWidget {
                               bText: bContinue,
                               bIcon: forwardArrow,
                               press: () {
-                                _controller.nextPage();
+                                controller.nextPage();
                               }),
                     ),
                   ],

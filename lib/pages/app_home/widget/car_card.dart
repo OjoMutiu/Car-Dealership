@@ -119,7 +119,7 @@ class _CarCadState extends State<CarCad> {
                           SizedBox(
                               height: AppDimension.height8),
                           Text(
-                            '\u20A6${widget.price.toStringAsFixed(2).replaceAllMapped(RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'), (Match m) => '${m[1]},')}',
+                            '\u{20A6} ${widget.price.toStringAsFixed(2).replaceAllMapped(RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'), (Match m) => '${m[1]},')}',
                             style: Theme.of(context)
                                 .textTheme
                                 .bodyLarge

@@ -16,6 +16,7 @@ class _ButtonSwitcherState extends State<ButtonSwitcher> {
 
   List<Car> filteredCars = [];
 
+
   @override
   void initState() {
     super.initState();
@@ -25,8 +26,6 @@ class _ButtonSwitcherState extends State<ButtonSwitcher> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: AppDimension.width4, 
-          vertical: AppDimension.getProportionateScreenHeight(3)),
       height: AppDimension.getProportionateScreenHeight(34),
       decoration: BoxDecoration(
           color: AppColors.primary200.withOpacity(0.4),
@@ -68,21 +67,25 @@ class _ButtonSwitcherState extends State<ButtonSwitcher> {
 
     return isSelected
         ? Expanded(
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom( shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6))),
-              onPressed: () {
-                setState(() {
-                  selectedButtonIndex = buttonIndex;
-                });
-              },
-              child: Text(
-                text,
-                style: Theme.of(context)
-                    .textTheme
-                    .bodyMedium
-                    ?.copyWith(
-                    fontSize: AppDimension.font14,
-                    color: Colors.white),
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: AppDimension.width4,
+                  vertical: AppDimension.getProportionateScreenHeight(3)),
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom( shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6))),
+                onPressed: () {
+                  setState(() {
+                    selectedButtonIndex = buttonIndex;
+                  });
+                },
+                child: Text(
+                  text,
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyMedium
+                      ?.copyWith(
+                      fontSize: AppDimension.font14,
+                      color: Colors.white),
+                ),
               ),
             ),
     )

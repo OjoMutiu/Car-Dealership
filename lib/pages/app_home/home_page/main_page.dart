@@ -141,7 +141,7 @@ class _HomePageBodyState extends State<HomePageBody> {
                   physics: const NeverScrollableScrollPhysics(),
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
-                    childAspectRatio: 0.8,
+                    childAspectRatio: 0.72,
                     mainAxisSpacing: AppDimension.height10
                   ),
                   itemCount: demoExploreCars.length,

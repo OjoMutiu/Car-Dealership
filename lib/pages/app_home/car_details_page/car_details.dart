@@ -17,9 +17,11 @@ class CarDetails extends StatefulWidget {
 class _CarDetailsState extends State<CarDetails> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: CarDetailsBody(carList: widget.carList, cIndex: widget.cIndex,),
-        bottomNavigationBar: const CustomBottomNavigationBar()
+    return SafeArea(
+      child: Scaffold(
+          body: CarDetailsBody(carList: widget.carList, cIndex: widget.cIndex,),
+          bottomNavigationBar: const CustomBottomNavigationBar()
+      ),
     );
   }
 }

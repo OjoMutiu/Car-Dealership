@@ -58,7 +58,9 @@ class _BodyState extends State<Body> {
                       style: Theme.of(context)
                           .textTheme
                           .bodySmall
-                          ?.copyWith(color: AppColors.textBody),
+                          ?.copyWith(
+                          fontSize: AppDimension.font14,
+                          color: AppColors.textBody),
                     ),
                     GestureDetector(
                       onTap: () {
@@ -69,7 +71,9 @@ class _BodyState extends State<Body> {
                         style: Theme.of(context)
                             .textTheme
                             .bodySmall
-                            ?.copyWith(color: AppColors.primary500),
+                            ?.copyWith(
+                            fontSize: AppDimension.font14,
+                            color: AppColors.primary500),
                       ),
                     ),
                   ],
