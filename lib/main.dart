@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:oloworay_autos/play.dart';
-import 'package:oloworay_autos/src/screens/home/home.dart';
 import 'package:oloworay_autos/src/screens/splash/splash_screen.dart';
 import 'package:oloworay_autos/src/utils/theme/theme.dart';
 

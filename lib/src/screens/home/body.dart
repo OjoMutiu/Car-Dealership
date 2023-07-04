@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:oloworay_autos/src/screens/home/model/car_model.dart';
 import 'package:oloworay_autos/src/screens/home/page_banner.dart';
@@ -6,6 +8,7 @@ import 'package:oloworay_autos/src/screens/home/section_header.dart';
 import 'package:oloworay_autos/src/screens/home/switch_button.dart';
 
 import '../../constant/size.dart';
+import '../car_details/car_details.dart';
 import 'car_card.dart';
 import 'car_filter_card.dart';
 import 'home_page_user_profile_header.dart';
@@ -24,6 +27,11 @@ class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
     Size().init(context);
+    Random random = Random();
+    int index1 = random.nextInt(demoTopChoiceCars.length);
+    int index2 = random.nextInt(demoTopChoiceCars.length);
+    int index3 = random.nextInt(demoOloworayAutosCars.length);
+    int index4 = random.nextInt(demoExploreCars.length);
     return SingleChildScrollView(
         child: Column(
           children: [
@@ -32,11 +40,8 @@ class _BodyState extends State<Body> {
                   horizontal: Size().getProportionateScreenWidth(20)),
               child: Column(
                 children: [
-                  SizedBox(
-                    height: Size().getProportionateScreenHeight(50),
-                  ),
-                  UserHomePageProfile(
-                      userName: widget.userName, numberOfItems: _numberOfItems),
+                  SizedBox(height: Size().getProportionateScreenHeight(50)),
+                  UserHomePageProfile(userName: widget.userName, numberOfItems: _numberOfItems),
                   SizedBox(height: Size().getProportionateScreenHeight(20)),
                   const PageBanner(),
                   SizedBox(height: Size().getProportionateScreenHeight(20)),
@@ -60,21 +65,30 @@ class _BodyState extends State<Body> {
                     child: Row(
                       children: [
                         ...List.generate(
-                          demoTopChoiceCars.length,
-                          (index) => CarCad(
-                            width: 216,
-                            year: demoTopChoiceCars[index].yearOfManufacture,
-                            price: demoTopChoiceCars[index].priceOfCar,
-                            make: demoTopChoiceCars[index].make,
-                            model: demoTopChoiceCars[index].model,
-                            location: demoTopChoiceCars[index].region,
-                            transmission: demoTopChoiceCars[index].transmission,
-                            fuel: demoTopChoiceCars[index].fuel,
-                            condition: demoTopChoiceCars[index].condition,
-                            image: demoTopChoiceCars[index].images[0],
-                            onTapCar: () {},
-                            onTapFav: () {},
-                          ),
+                          2,
+                          (index) {
+                            int randomCarIndex = index == 0? index1: index2;
+                            return CarCad(
+                                width: 216,
+                                year: demoTopChoiceCars[randomCarIndex].yearOfManufacture,
+                            price: demoTopChoiceCars[randomCarIndex].priceOfCar,
+                            make: demoTopChoiceCars[randomCarIndex].make,
+                            model: demoTopChoiceCars[randomCarIndex].model,
+                            location: demoTopChoiceCars[randomCarIndex].region,
+                            transmission: demoTopChoiceCars[randomCarIndex].transmission,
+                            fuel: demoTopChoiceCars[randomCarIndex].fuel,
+                            condition: demoTopChoiceCars[randomCarIndex].condition,
+                            image: demoTopChoiceCars[randomCarIndex].images[0],
+                            onTapCar: () {
+                              Navigator.push(context, MaterialPageRoute(builder:
+                                  (context) => CarDetails(carList: demoTopChoiceCars, cIndex: randomCarIndex )
+                              ));
+                            },
+                            onTapFav: () {
+
+                            },
+                          );
+                            },
                         )
                       ],
                     ),
@@ -103,14 +117,18 @@ class _BodyState extends State<Body> {
                             fuel: demoOloworayAutosCars[index].fuel,
                             condition: demoOloworayAutosCars[index].condition,
                             image: demoOloworayAutosCars[index].images[0],
-                            onTapCar: () {},
+                            onTapCar: () {
+                              Navigator.push(context, MaterialPageRoute(builder:
+                                  (context) => CarDetails(carList: demoOloworayAutosCars, cIndex: index )
+                              ));
+                            },
                             onTapFav: () {},
                           ),
                         )
                       ],
                     ),
                   ),
-                  SizedBox(height: Size().getProportionateScreenHeight(12)),
+                  SizedBox(height: Size().getProportionateScreenHeight(24)),
                   const SectionHeader(sectionText: 'Explore Cars'),
                   SizedBox(height: Size().getProportionateScreenHeight(12)),
                   GridView.builder(
@@ -133,7 +151,11 @@ class _BodyState extends State<Body> {
                           fuel: demoExploreCars[index].fuel,
                           condition: demoExploreCars[index].condition,
                           image: demoExploreCars[index].images[0],
-                          onTapCar: () {},
+                          onTapCar: () {
+                            Navigator.push(context, MaterialPageRoute(builder:
+                                (context) => CarDetails(carList: demoExploreCars, cIndex: index )
+                            ));
+                          },
                           onTapFav: () {},
                       );
                     },

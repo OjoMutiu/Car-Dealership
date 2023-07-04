@@ -22,18 +22,20 @@ class CarCad extends StatefulWidget {
     required this.onTapFav,
   });
   final int year;
+
   final double width, price;
   final String image, make, model, location, transmission, fuel, condition;
   final GestureTapCallback onTapCar, onTapFav;
+
 
   @override
   State<CarCad> createState() => _CarCadState();
 }
 
 class _CarCadState extends State<CarCad> {
+  bool isFavTap = false;
   @override
   Widget build(BuildContext context) {
-    String favIcon = 'assets/icons/favourite.svg';
     return Row(
       children: [
         SizedBox(
@@ -44,12 +46,18 @@ class _CarCadState extends State<CarCad> {
                   children: [
                     GestureDetector(
                       onTap: widget.onTapCar,
-                      child: SizedBox(
-                          width: Size().getProportionateScreenWidth(widget.width),
-                          child: Image.asset(
-                            widget.image,
+                      child: ClipRRect(
+                        borderRadius: const BorderRadius.only(
+                            topLeft: Radius.circular(8),
+                            topRight: Radius.circular(8)),
+                        child: SizedBox(
+                          height: 110,
+                            width: Size().getProportionateScreenWidth(widget.width),
+                          child: Image.asset(widget.image,
                             fit: BoxFit.cover,
-                          )),
+                          ),
+                            ),
+                      ),
                     ),
                     Container(
                       padding: EdgeInsets.fromLTRB(
@@ -141,10 +149,11 @@ class _CarCadState extends State<CarCad> {
                 child: GestureDetector(
                   onTap: (){
                     setState(() {
-                      favIcon = 'assets/icons/lock.svg';
+                      isFavTap = !isFavTap;
                     });
                   },
-                  child: SvgPicture.asset(favIcon),
+                  child: !isFavTap? SvgPicture.asset('assets/icons/favourite.svg'):
+                  SvgPicture.asset('assets/icons/fav_colored.svg'),
                 ),
               ),
             ),

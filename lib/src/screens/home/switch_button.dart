@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../constant/color.dart';
 import '../../constant/size.dart';
+import 'model/car_model.dart';
 
 class ButtonSwitcher extends StatefulWidget {
   const ButtonSwitcher({super.key});
@@ -13,12 +14,19 @@ class ButtonSwitcher extends StatefulWidget {
 class _ButtonSwitcherState extends State<ButtonSwitcher> {
   int selectedButtonIndex = 0;
 
+  List<Car> filteredCars = [];
+
+  @override
+  void initState() {
+    super.initState();
+    filteredCars = demoOloworayAutosCars;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(
-          horizontal: 4,
-          vertical: 3),
+      padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 3),
+      height: Size().getProportionateScreenHeight(34),
       decoration: BoxDecoration(
           color: kPrimaryColor.withOpacity(0.15),
           borderRadius: BorderRadius.circular(6)),
@@ -28,16 +36,9 @@ class _ButtonSwitcherState extends State<ButtonSwitcher> {
           children: [
             buildButton(0, 'All'),
             const SizedBox(width: 10,),
-            const VerticalDivider(
-              width: 20,
-              thickness: 1,
-              indent: 20,
-              endIndent: 0,
-              color: Colors.grey,
-            ),
-            // const Text('|'),
+            const Text('|'),
             const SizedBox(width: 10,),
-            buildButton(1, ' Used '),
+            buildButton(1, 'Used '),
             const SizedBox(width: 10,),
             const Text('|'),
             const SizedBox(width: 10,),
@@ -48,36 +49,40 @@ class _ButtonSwitcherState extends State<ButtonSwitcher> {
     );
   }
 
+  void filterCar(){
+    setState(() {
+     filteredCars = demoOloworayAutosCars.where((car){
+       if(selectedButtonIndex == 0){
+         return true;
+       }else if(selectedButtonIndex == 1){
+         return car.condition == 'Foreign Used' || car.condition == 'Nigerian Used';
+       }
+       return false;
+     }).toList();
+    });
+  }
+
   Widget buildButton(int buttonIndex, String text) {
     final bool isSelected = buttonIndex == selectedButtonIndex;
 
     return isSelected
-        ? Row(
-          children:[ Expanded(
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom( shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6))),
-                onPressed: () {
-                  setState(() {
-                    selectedButtonIndex = buttonIndex;
-                  });
-                },
-                child: Text(
-                  text,
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyMedium
-                      ?.copyWith(color: Colors.white),
-                ),
+        ? Expanded(
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom( shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6))),
+              onPressed: () {
+                setState(() {
+                  selectedButtonIndex = buttonIndex;
+                });
+              },
+              child: Text(
+                text,
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyMedium
+                    ?.copyWith(color: Colors.white),
               ),
             ),
-            const VerticalDivider(
-              width: 20,
-              thickness: 1,
-              indent: 20,
-              endIndent: 0,
-              color: Colors.grey,
-            ),
-        ])
+          )
         : Expanded(
             child: TextButton(
               style: TextButton.styleFrom( shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6))),
